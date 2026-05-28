@@ -1,0 +1,2950 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sémiologie Chirurgicale — Fiche de Révision Complète</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f9fb;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --blue: #2563eb;
+    --blue-light: #eff6ff;
+    --blue-mid: #bfdbfe;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --orange: #d97706;
+    --orange-light: #fffbeb;
+    --purple: #7c3aed;
+    --purple-light: #f5f3ff;
+    --teal: #0d9488;
+    --teal-light: #f0fdfa;
+    --pink: #be185d;
+    --pink-light: #fdf2f8;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow: 0 4px 16px rgba(0,0,0,0.1);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ========== HEADER ========== */
+  .main-header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #1d4ed8 100%);
+    color: white;
+    padding: 40px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .main-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .main-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .main-header .subtitle {
+    font-size: 14px;
+    opacity: 0.85;
+    position: relative;
+    letter-spacing: 0.5px;
+  }
+  .header-badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    position: relative;
+  }
+  .header-badge {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  /* ========== STICKY NAV ========== */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    border-bottom: 2px solid var(--border);
+    padding: 0 16px;
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+  .nav-inner {
+    display: flex;
+    gap: 4px;
+    padding: 6px 0;
+    min-width: max-content;
+  }
+  .nav-btn {
+    padding: 7px 14px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover { background: var(--blue-light); color: var(--blue); }
+  .nav-btn.active { background: var(--blue); color: white; }
+
+  /* ========== PROGRESS BAR ========== */
+  .progress-bar {
+    height: 3px;
+    background: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    width: 100%;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), #60a5fa);
+    width: 0%;
+    transition: width 0.1s;
+  }
+
+  /* ========== MAIN LAYOUT ========== */
+  .main-content { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+
+  /* ========== SECTION HEADER ========== */
+  .section-wrap { margin-bottom: 48px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0.6; }
+
+  /* ========== CARDS ========== */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 680px) { .card-2col { grid-template-columns: 1fr; } }
+
+  /* ========== LISTS ========== */
+  .fact-list { list-style: none; padding: 0; }
+  .fact-list li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .fact-list li:last-child { border-bottom: none; }
+  .fact-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-size: 12px;
+    top: 8px;
+  }
+  .fact-list.red li::before { color: var(--red); }
+  .fact-list.green li::before { color: var(--green); }
+  .fact-list.orange li::before { color: var(--orange); }
+  .fact-list.purple li::before { color: var(--purple); }
+
+  /* ========== BADGES ========== */
+  .badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px; font-weight: 700;
+    white-space: nowrap;
+  }
+  .badge-blue { background: var(--blue-light); color: var(--blue); border: 1px solid var(--blue-mid); }
+  .badge-red { background: var(--red-light); color: var(--red); border: 1px solid #fecaca; }
+  .badge-green { background: var(--green-light); color: var(--green); border: 1px solid #bbf7d0; }
+  .badge-orange { background: var(--orange-light); color: var(--orange); border: 1px solid #fde68a; }
+  .badge-purple { background: var(--purple-light); color: var(--purple); border: 1px solid #ddd6fe; }
+  .badge-teal { background: var(--teal-light); color: var(--teal); border: 1px solid #99f6e4; }
+  .badge-pink { background: var(--pink-light); color: var(--pink); border: 1px solid #fbcfe8; }
+
+  /* ========== ALERT BOXES ========== */
+  .alert {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid;
+    margin: 12px 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .alert-red { background: var(--red-light); border-color: var(--red); }
+  .alert-blue { background: var(--blue-light); border-color: var(--blue); }
+  .alert-green { background: var(--green-light); border-color: var(--green); }
+  .alert-orange { background: var(--orange-light); border-color: var(--orange); }
+  .alert-purple { background: var(--purple-light); border-color: var(--purple); }
+  .alert strong { display: block; margin-bottom: 2px; font-size: 13px; letter-spacing: 0.3px; }
+
+  /* ========== TABLES ========== */
+  .table-wrap { overflow-x: auto; margin: 12px 0; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th {
+    background: #f1f5f9;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border);
+  }
+  td { padding: 9px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8fafc; }
+
+  /* ========== IMAGE CONTAINERS ========== */
+  .img-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .img-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .img-caption {
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    background: #f8fafc;
+  }
+  .img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 14px 0; }
+
+  /* ========== SVG DIAGRAMS ========== */
+  .diagram-wrap {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    margin: 12px 0;
+  }
+  .diagram-wrap svg { max-width: 100%; height: auto; }
+
+  /* ========== QCM ========== */
+  .qcm-section {
+    background: linear-gradient(135deg, #f8faff 0%, #eff6ff 100%);
+    border: 2px solid var(--blue-mid);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-top: 28px;
+  }
+  .qcm-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--blue-mid);
+  }
+  .qcm-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--blue); }
+  .question-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+  .question-card:hover { box-shadow: var(--shadow); }
+  .q-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .q-text { font-weight: 600; font-size: 14.5px; margin-bottom: 14px; line-height: 1.5; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .option-btn {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: white;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13.5px;
+    text-align: left;
+    transition: all 0.2s;
+    width: 100%;
+    line-height: 1.4;
+  }
+  .option-btn:hover:not(:disabled) { border-color: var(--blue); background: var(--blue-light); }
+  .option-btn.correct { border-color: var(--green); background: var(--green-light); font-weight: 600; }
+  .option-btn.wrong { border-color: var(--red); background: var(--red-light); }
+  .option-btn:disabled { cursor: default; }
+  .option-letter {
+    min-width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .feedback {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    display: none;
+    line-height: 1.5;
+  }
+  .feedback.show { display: block; }
+  .feedback.correct { background: var(--green-light); border: 1px solid #bbf7d0; color: #15803d; }
+  .feedback.wrong { background: var(--red-light); border: 1px solid #fecaca; color: #b91c1c; }
+  .qcm-score {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    text-align: center;
+    margin-top: 16px;
+    display: none;
+  }
+  .score-big { font-size: 42px; font-weight: 700; font-family: 'Playfair Display', serif; }
+  .score-label { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+
+  /* ========== CAS CLINIQUE ========== */
+  .cas-card {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 1px solid #fde68a;
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 20px;
+  }
+  .cas-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .cas-num {
+    background: var(--orange);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .cas-title { font-weight: 700; font-size: 15px; color: #92400e; }
+  .cas-text { font-size: 14px; line-height: 1.7; color: #78350f; margin-bottom: 14px; }
+  .cas-questions { background: white; border-radius: var(--radius-sm); padding: 14px 16px; }
+  .cas-q { margin-bottom: 10px; font-size: 14px; }
+  .cas-q strong { color: var(--blue); }
+  .cas-answer {
+    background: var(--green-light);
+    border: 1px solid #bbf7d0;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 13.5px;
+    color: #15803d;
+    display: none;
+  }
+  .cas-answer.show { display: block; }
+  .toggle-btn {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 7px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Source Sans 3', sans-serif;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+  .toggle-btn:hover { background: #1d4ed8; }
+
+  /* ========== EVAL GENERALE ========== */
+  .eval-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    color: white;
+    margin-top: 48px;
+  }
+  .eval-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+  .eval-subtitle { opacity: 0.7; font-size: 14px; margin-bottom: 24px; }
+  .eval-section .question-card { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); }
+  .eval-section .q-num { color: #93c5fd; }
+  .eval-section .q-text { color: white; }
+  .eval-section .option-btn {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.15);
+    color: #e2e8f0;
+  }
+  .eval-section .option-btn:hover:not(:disabled) { background: rgba(37,99,235,0.4); border-color: #60a5fa; color: white; }
+  .eval-section .option-btn.correct { background: rgba(22,163,74,0.3); border-color: #86efac; color: #bbf7d0; }
+  .eval-section .option-btn.wrong { background: rgba(220,38,38,0.3); border-color: #fca5a5; color: #fecaca; }
+  .eval-section .option-letter { background: rgba(37,99,235,0.4); color: #93c5fd; }
+  .eval-section .cas-card { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); }
+  .eval-section .cas-title { color: #fde68a; }
+  .eval-section .cas-text { color: #e2e8f0; }
+  .eval-section .cas-questions { background: rgba(255,255,255,0.05); }
+  .eval-section .cas-q { color: #e2e8f0; }
+  .eval-section .cas-q strong { color: #93c5fd; }
+  .eval-section .cas-answer { background: rgba(22,163,74,0.2); border-color: rgba(134,239,172,0.3); color: #bbf7d0; }
+  .eval-section .qcm-score { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: white; }
+
+  /* ========== PRONOSTICS ========== */
+  .pronostic-section {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border: 2px solid #c4b5fd;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin-top: 40px;
+  }
+  .pronostic-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--purple); margin-bottom: 6px; }
+  .priority-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid #ddd6fe;
+  }
+  .priority-item:last-child { border-bottom: none; }
+  .priority-num {
+    min-width: 36px; height: 36px;
+    background: var(--purple);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .priority-label { font-weight: 700; color: var(--purple); font-size: 15px; }
+  .priority-text { font-size: 14px; color: #4c1d95; margin-top: 3px; line-height: 1.5; }
+  .star-rating { color: #f59e0b; font-size: 16px; margin-top: 2px; }
+
+  /* ========== DEGRE SECTION ========== */
+  .degree-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .degree-card {
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid;
+    text-align: center;
+  }
+  .degree-card .degree-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; }
+  .degree-card .degree-name { font-size: 12px; font-weight: 600; margin: 4px 0 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .degree-card p { font-size: 12.5px; line-height: 1.4; }
+
+  /* ========== MISC ========== */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 740px) { .grid-3 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .grid-3 { grid-template-columns: 1fr; } }
+
+  .key-fact {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 1px solid #f59e0b;
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #78350f;
+    margin: 10px 0;
+  }
+  .key-fact::before { content: '★ '; color: var(--orange); }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #f1f5f9;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    color: var(--blue);
+  }
+
+  hr { border: none; border-top: 2px solid var(--border); margin: 28px 0; }
+
+  .scroll-top {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 46px; height: 46px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: var(--shadow);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 99;
+  }
+  .scroll-top.show { opacity: 1; }
+
+  .flex-wrap-gap { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+
+  /* SPECIFICS */
+  .hernie-schema { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 12px 0; }
+  @media (max-width: 600px) { .hernie-schema { grid-template-columns: 1fr; } }
+  .hernie-box {
+    background: var(--blue-light);
+    border: 1px solid var(--blue-mid);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .hernie-box strong { display: block; color: var(--blue); margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.3px; }
+
+  .occlusion-compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border);
+    margin: 12px 0;
+  }
+  .oc-col { padding: 12px 14px; }
+  .oc-col:first-child { background: #eff6ff; border-right: 1px solid var(--border); }
+  .oc-col:last-child { background: #fef2f2; }
+  .oc-title { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 8px; }
+  .oc-title.blue { color: var(--blue); }
+  .oc-title.red { color: var(--red); }
+
+  .anatomy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin: 12px 0; }
+  .anatomy-item {
+    background: var(--teal-light);
+    border: 1px solid #99f6e4;
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .anatomy-item .loc { font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; color: var(--teal); font-weight: 700; margin-bottom: 4px; }
+
+  .submit-qcm {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Source Sans 3', sans-serif;
+    margin-top: 16px;
+    transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .submit-qcm:hover { background: #1d4ed8; }
+  .reset-qcm {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Source Sans 3', sans-serif;
+    margin-top: 16px;
+    margin-left: 10px;
+    transition: all 0.2s;
+  }
+  .reset-qcm:hover { background: var(--bg); }
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<!-- HEADER -->
+<div class="main-header">
+  <h1>Sémiologie Chirurgicale</h1>
+  <div class="subtitle">Fiche de révision complète — 4ème année Médecine</div>
+  <div class="header-badges">
+    <span class="header-badge">7 Thèmes</span>
+    <span class="header-badge">70 QCM</span>
+    <span class="header-badge">14 Cas cliniques</span>
+    <span class="header-badge">Pronostics d'examen</span>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="scrollTo('t1')">🫁 Occlusion</button>
+    <button class="nav-btn" onclick="scrollTo('t2')">🔴 Invagination</button>
+    <button class="nav-btn" onclick="scrollTo('t3')">🌀 Volvulus</button>
+    <button class="nav-btn" onclick="scrollTo('t4')">🔗 Brides</button>
+    <button class="nav-btn" onclick="scrollTo('t5')">🔵 S. Tumoral</button>
+    <button class="nav-btn" onclick="scrollTo('t6')">🏥 Hernies</button>
+    <button class="nav-btn" onclick="scrollTo('t7')">🔥 Brûlures</button>
+    <button class="nav-btn" onclick="scrollTo('eval')">📝 Éval Générale</button>
+    <button class="nav-btn" onclick="scrollTo('pronostic')">🎯 Pronostics</button>
+  </div>
+</nav>
+
+<div class="main-content">
+
+<!-- GLOBAL SCORE TRACKER -->
+<div id="global-tracker" style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;box-shadow:var(--shadow-sm);">
+  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+    <div style="width:40px;height:40px;background:var(--blue-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;">📊</div>
+    <div>
+      <div style="font-weight:700;font-size:14px;color:var(--text);">Score global en temps réel</div>
+      <div style="font-size:12px;color:var(--text-muted);">Toutes les questions confondues</div>
+    </div>
+  </div>
+  <div style="flex:1;min-width:180px;">
+    <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+      <span style="font-size:13px;color:var(--text-muted);">Progression</span>
+      <span style="font-size:13px;font-weight:700;" class="gt-num">0/0</span>
+    </div>
+    <div style="background:var(--border);border-radius:99px;height:8px;overflow:hidden;">
+      <div class="gt-bar-fill" style="height:100%;width:0%;background:var(--blue);border-radius:99px;transition:all 0.4s;"></div>
+    </div>
+  </div>
+  <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--blue);" class="gt-pct">0%</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- THÈME 1 : SYNDROME OCCLUSIF -->
+<!-- ============================================================ -->
+<div class="section-wrap" id="t1">
+  <div class="section-header">
+    <div class="section-icon" style="background:#eff6ff;">🫁</div>
+    <div>
+      <div class="section-num">Thème 1</div>
+      <div class="section-title">Syndrome Occlusif</div>
+    </div>
+  </div>
+
+  <div class="alert alert-red">
+    <strong>⚠️ DÉFINITION CLEF</strong>
+    Interruption du transit intestinal → accumulation en amont → urgence chirurgicale.
+  </div>
+
+  <!-- Physiopatho -->
+  <div class="card">
+    <div class="card-title">⚡ Physiopathologie</div>
+    <ul class="fact-list">
+      <li>Obstacle → intestin contracte pour pousser le contenu → <strong>douleur colique intermittente</strong></li>
+      <li>Chaque contraction consomme de l'énergie → à terme l'intestin s'épuise</li>
+      <li>Accumulation en amont → <strong>distension + météorisme</strong> (air + liquide + débris)</li>
+      <li>Formation du <strong>3ème secteur</strong> → hypovolémie → oligurie → troubles circulatoires</li>
+      <li>Diaphragme refoulé → difficultés respiratoires</li>
+      <li>Germes se multiplient dans la lumière → translocation bactérienne</li>
+      <li>AGM = Arrêt des Gaz et Matières — signe cardinal, PAS critère absolu (partiel possible)</li>
+    </ul>
+  </div>
+
+  <!-- Classification -->
+  <div class="card">
+    <div class="card-title">📊 Classification — 2 grands types</div>
+    <div class="occlusion-compare">
+      <div class="oc-col">
+        <div class="oc-title blue">🔵 Occlusion MÉCANIQUE</div>
+        <ul class="fact-list" style="font-size:13px;">
+          <li><strong>Endoluminale</strong> : corps étranger, bézoard, parasite, fécalome, polype</li>
+          <li><strong>Pariétale</strong> : cancer, volvulus, invagination</li>
+          <li><strong>Extra-pariétale</strong> : kyste mésentérique, fibrome utérin, grossesse, pseudo-kyste pancréas</li>
+          <li>BHA augmentés (bruits de lutte)</li>
+          <li>AGM complet</li>
+          <li>Gaz absent dans rectum à l'ASP</li>
+        </ul>
+      </div>
+      <div class="oc-col">
+        <div class="oc-title red">🔴 Occlusion FONCTIONNELLE (iléus)</div>
+        <ul class="fact-list" style="font-size:13px;">
+          <li><strong>Cause vasculaire</strong> : thrombose mésentérique → nécrose → plus de péristaltisme</li>
+          <li><strong>Métabolique</strong> : hypokaliémie → paralysie intestinale</li>
+          <li>BHA diminués ou silence auscultatoire</li>
+          <li>NHA disséminés, désorganisés, partout</li>
+          <li>Gaz présent dans le rectum</li>
+          <li>Distension globale de tout le tube digestif</li>
+        </ul>
+      </div>
+    </div>
+    <div class="key-fact">STRANGULATION = occlusion mécanique + atteinte vasculaire → ischémie → nécrose → urgence vitale</div>
+  </div>
+
+  <!-- Haute vs Basse -->
+  <div class="card">
+    <div class="card-title">📍 Localisation : Haute / Basse / Colique</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Critère</th><th>Haute (Duodéno-jéjunal)</th><th>Basse (en aval ATJ)</th><th>Colique</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Douleur</strong></td><td>+++ violente</td><td>++</td><td>+++ (grêle colique)</td></tr>
+          <tr><td><strong>Vomissements</strong></td><td>+++ précoces</td><td>+++ tardifs fécaloïdes</td><td>Tardifs ou absents</td></tr>
+          <tr><td><strong>Distension</strong></td><td>Absente ou minimale</td><td>+++</td><td>+++</td></tr>
+          <tr><td><strong>AGM</strong></td><td>Tardif</td><td>++</td><td>Très précoce</td></tr>
+          <tr><td><strong>NHA</strong></td><td>Plus hauts que larges</td><td>Plus hauts que larges</td><td>Plus larges que hauts</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-blue" style="margin-top:10px;">
+      <strong>Repère anatomique :</strong> Angle de Treitz = angle duodéno-jéjunal = limite entre occlusion haute et basse.
+    </div>
+  </div>
+
+  <!-- BÉZOARDS -->
+  <div class="card">
+    <div class="card-title">🧪 Types de bézoards</div>
+    <div class="flex-wrap-gap">
+      <span class="badge badge-green">🌿 Phytobézoard : fibres végétales</span>
+      <span class="badge badge-purple">💇 Trichobézoard : poils, ongles</span>
+      <span class="badge badge-orange">💊 Pharmacobézoard : médicaments agglutinés</span>
+      <span class="badge badge-blue">🥛 Lactobézoard : lait coagulé (nourrisson)</span>
+    </div>
+    <p style="font-size:13px;margin-top:8px;">Bézoard = masse de substances non digérées accumulées dans le tube digestif (surtout estomac).</p>
+  </div>
+
+  <!-- Images radiologiques -->
+  <div class="img-grid">
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Upright-x-ray-abdomen-showing-small-bowel-obstruction.jpg/320px-Upright-x-ray-abdomen-showing-small-bowel-obstruction.jpg" alt="ASP occlusion grêle" onerror="this.src='https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=320&q=80'">
+      <div class="img-caption">ASP debout : NHA en grêle (plus hauts que larges)</div>
+    </div>
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/LargeBowelobstruction.jpg/320px-LargeBowelobstruction.jpg" alt="ASP occlusion côlon" onerror="this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=320&q=80'">
+      <div class="img-caption">ASP debout : occlusion colique (NHA larges)</div>
+    </div>
+  </div>
+
+  <!-- Sémiologie clinique -->
+  <div class="card">
+    <div class="card-title">🩺 Sémiologie clinique</div>
+    <div class="card-2col">
+      <div>
+        <p style="font-weight:700;font-size:13px;color:var(--blue);margin-bottom:8px;">SIGNES FONCTIONNELS</p>
+        <ul class="fact-list">
+          <li>Douleur colique et intermittente</li>
+          <li>Vomissements (précoces si haute, tardifs fécaloïdes si basse)</li>
+          <li>Distension abdominale</li>
+          <li>AGM (arrêt des gaz et matières)</li>
+          <li>Météorisme</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;font-size:13px;color:var(--blue);margin-bottom:8px;">EXAMEN PHYSIQUE</p>
+        <ul class="fact-list">
+          <li><strong>Inspection</strong> : distension symétrique (grêle) ou asymétrique (volvulus), ondes péristaltiques visibles</li>
+          <li><strong>Palpation</strong> : pas de contracture, masse possible. <code>95%</code> du diagnostic</li>
+          <li><strong>Percussion</strong> : hypertympanisme</li>
+          <li><strong>Auscultation</strong> : BHA de lutte ↑ (mécanique) / silence (fonctionnelle / strangulation)</li>
+          <li><strong>TR</strong> : ampoule vide (méca) / gaz présent (fonctio)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-orange" style="margin-top:10px;">
+      <strong>NB important :</strong> L'examen physique donne 95% du diagnostic. L'occlusion n'est PAS synonyme de contracture.
+    </div>
+  </div>
+
+  <!-- Points faibles abdomen -->
+  <div class="card">
+    <div class="card-title">📍 Points faibles de l'abdomen (à toujours examiner)</div>
+    <div class="flex-wrap-gap">
+      <span class="badge badge-red">Ombilic</span>
+      <span class="badge badge-red">Ligne blanche</span>
+      <span class="badge badge-red">Région inguinale</span>
+      <span class="badge badge-red">Région crurale</span>
+      <span class="badge badge-red">Jonction tricirculaire</span>
+      <span class="badge badge-red">Rebord grands droits</span>
+      <span class="badge badge-red">Ligne arquée de Douglas</span>
+      <span class="badge badge-red">Les bourses</span>
+    </div>
+  </div>
+
+  <!-- Paraclinique -->
+  <div class="card">
+    <div class="card-title">🔬 Sémiologie paraclinique</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Examen</th><th>Résultat Mécanique</th><th>Résultat Fonctionnelle</th><th>Intérêt</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ASP debout face</strong></td><td>NHA organisés, localisés, bien ordonnés — <em>gaz absent rectum</em></td><td>NHA disséminés, désorganisés partout — <em>gaz présent rectum</em></td><td>Examen de 1ère intention</td></tr>
+          <tr><td><strong>ASP couché</strong></td><td colspan="2">Degré de distension, volvulus, haustrations coliques</td><td>Complément</td></tr>
+          <tr><td><strong>ASP profil</strong></td><td colspan="2">Air dans le rectum ?</td><td>Complément</td></tr>
+          <tr><td><strong>Échographie</strong></td><td colspan="2">Visualisation mouvements intestinaux. Sauf cas d'invagination : examen de choix</td><td>1ère intention si invagination</td></tr>
+          <tr><td><strong>TDM/Scanner</strong></td><td colspan="2">Site exact + caractérisation complète</td><td>Si doute</td></tr>
+          <tr><td><strong>Biologie</strong></td><td colspan="2">Hb (hémoconcentration si déshydraté), Leucocytes ↑ (hyperleucocytose), ionogramme (hypokaliémie)</td><td>Systématique</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="key-fact">NHA : niveaux hydroaériques = air (transparent/noir) + eau (radio-opaque/blanc) dans anses distendues</div>
+  </div>
+
+  <!-- QCM Thème 1 -->
+  <div class="qcm-section" id="qcm1">
+    <div class="qcm-header">
+      <div style="font-size:28px;">📝</div>
+      <div>
+        <div class="qcm-title">QCM — Syndrome Occlusif (10 questions)</div>
+        <div style="font-size:13px;color:#64748b;">Testez vos connaissances sur ce thème</div>
+      </div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="question-card">
+      <div class="q-num">Question 1 / 10</div>
+      <div class="q-text">Quelle est la principale caractéristique de la douleur dans le syndrome occlusif ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q1')"><span class="option-letter">A</span> Continue et permanente</button>
+        <button class="option-btn" onclick="answer(this,'correct','q1')"><span class="option-letter">B</span> Colique et intermittente</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q1')"><span class="option-letter">C</span> Brûlante avec irradiation dorsale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q1')"><span class="option-letter">D</span> Sourde et progressive</button>
+      </div>
+      <div class="feedback" id="fb-q1-correct">✅ <strong>Correct !</strong> L'intestin se contracte de façon répétée contre l'obstacle → douleur par intermittence (colique). Entre les contractions, la douleur disparaît.</div>
+      <div class="feedback" id="fb-q1-wrong">❌ La bonne réponse est B. La douleur est colique car l'intestin contracte répétitivement pour essayer de franchir l'obstacle.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card">
+      <div class="q-num">Question 2 / 10</div>
+      <div class="q-text">La formation du 3ème secteur dans l'occlusion intestinale entraîne :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q2')"><span class="option-letter">A</span> Hypervolémie</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2')"><span class="option-letter">B</span> Hypertension artérielle</button>
+        <button class="option-btn" onclick="answer(this,'correct','q2')"><span class="option-letter">C</span> Hypovolémie, oligurie, troubles circulatoires</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2')"><span class="option-letter">D</span> Augmentation de la diurèse</button>
+      </div>
+      <div class="feedback correct" id="fb-q2-correct">✅ <strong>Correct !</strong> Le 3ème secteur est un espace liquidien formé dans la lumière intestinale distale, soustrayant du volume à la circulation → hypovolémie → oligurie → choc.</div>
+      <div class="feedback wrong" id="fb-q2-wrong">❌ C est correct. Le liquide séquestré dans les anses distendues ne circule plus → hypovolémie réelle.</div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card">
+      <div class="q-num">Question 3 / 10</div>
+      <div class="q-text">Quelle est la 1ère cause d'occlusion intestinale dans le monde ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q3')"><span class="option-letter">A</span> Volvulus</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3')"><span class="option-letter">B</span> Cancer du côlon</button>
+        <button class="option-btn" onclick="answer(this,'correct','q3')"><span class="option-letter">C</span> Brides / adhérences post-opératoires</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3')"><span class="option-letter">D</span> Hernie étranglée</button>
+      </div>
+      <div class="feedback correct" id="fb-q3-correct">✅ <strong>Correct !</strong> Les adhérences post-opératoires (brides) sont la 1ère cause mondiale d'occlusion intestinale (occlusions sur brides).</div>
+      <div class="feedback wrong" id="fb-q3-wrong">❌ C est correct. Les brides/adhérences post-op sont la 1ère cause mondiale d'occlusion.</div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card">
+      <div class="q-num">Question 4 / 10</div>
+      <div class="q-text">Sur l'ASP debout de face, quelle image signe une occlusion MÉCANIQUE ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q4')"><span class="option-letter">A</span> NHA disséminés et désorganisés partout</button>
+        <button class="option-btn" onclick="answer(this,'correct','q4')"><span class="option-letter">B</span> NHA organisés, localisés, bien ordonnés + absence de gaz dans le rectum</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q4')"><span class="option-letter">C</span> NHA disséminés + gaz présent dans le rectum</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q4')"><span class="option-letter">D</span> Absence totale de NHA</button>
+      </div>
+      <div class="feedback correct" id="fb-q4-correct">✅ <strong>Correct !</strong> Mécanique = NHA organisés en pile de monnaie (localisés) + absence de gaz dans le rectum (l'obstacle empêche le transit).</div>
+      <div class="feedback wrong" id="fb-q4-wrong">❌ B est correct. Occlusion mécanique → NHA organisés + pas de gaz dans rectum. Fonctionnelle → NHA désorganisés partout + gaz dans rectum.</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card">
+      <div class="q-num">Question 5 / 10</div>
+      <div class="q-text">Concernant l'occlusion haute (au-dessus de l'angle de Treitz), quelle affirmation est vraie ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5')"><span class="option-letter">A</span> Distension abdominale importante dès le début</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5')"><span class="option-letter">B</span> Vomissements précoces et nombreux, distension minimale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5')"><span class="option-letter">C</span> AGM très précoce</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5')"><span class="option-letter">D</span> NHA plus larges que hauts</button>
+      </div>
+      <div class="feedback correct" id="fb-q5-correct">✅ <strong>Correct !</strong> Occlusion haute : le contenu est rapidement évacué par vomissements (précoces, nombreux). L'intestin en amont est court → distension minimale.</div>
+      <div class="feedback wrong" id="fb-q5-wrong">❌ B est correct. Haute = Vx précoces +++ / distension minimale. Basse = Vx tardifs fécaloïdes / distension +++.</div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card">
+      <div class="q-num">Question 6 / 10</div>
+      <div class="q-text">La strangulation intestinale se définit comme :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q6')"><span class="option-letter">A</span> Une occlusion fonctionnelle avec iléus prolongé</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6')"><span class="option-letter">B</span> Un volvulus simple sans atteinte vasculaire</button>
+        <button class="option-btn" onclick="answer(this,'correct','q6')"><span class="option-letter">C</span> Une occlusion mécanique avec atteinte de la vascularisation de l'anse → ischémie → nécrose</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6')"><span class="option-letter">D</span> Une occlusion par fécalome uniquement</button>
+      </div>
+      <div class="feedback correct" id="fb-q6-correct">✅ <strong>Correct !</strong> Strangulation = occlusion mécanique COMPLIQUÉE d'atteinte vasculaire. Urgence chirurgicale absolue. Si nécrose → plus de péristaltisme → silence auscultatoire.</div>
+      <div class="feedback wrong" id="fb-q6-wrong">❌ C est correct. Strangulation = obstruction + compression du pédicule vasculaire → ischémie → nécrose si non traité.</div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card">
+      <div class="q-num">Question 7 / 10</div>
+      <div class="q-text">Quel est le meilleur examen en 1ère intention pour une occlusion intestinale (hors invagination) ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q7')"><span class="option-letter">A</span> ASP (Abdomen Sans Préparation) debout de face</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7')"><span class="option-letter">B</span> Échographie abdominale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7')"><span class="option-letter">C</span> IRM abdominale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7')"><span class="option-letter">D</span> Coloscopie</button>
+      </div>
+      <div class="feedback correct" id="fb-q7-correct">✅ <strong>Correct !</strong> L'ASP debout de face est l'examen de 1ère intention pour l'occlusion intestinale. Pour l'invagination : échographie en 1er choix.</div>
+      <div class="feedback wrong" id="fb-q7-wrong">❌ A est correct. ASP = examen de choix en occlusion. Exception : invagination → échographie en 1ère intention.</div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card">
+      <div class="q-num">Question 8 / 10</div>
+      <div class="q-text">Lors d'une occlusion fonctionnelle, comment se présente l'auscultation abdominale ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q8')"><span class="option-letter">A</span> Bruits de lutte augmentés et fréquents</button>
+        <button class="option-btn" onclick="answer(this,'correct','q8')"><span class="option-letter">B</span> Silence auscultatoire ou bruits très diminués</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q8')"><span class="option-letter">C</span> Bruits normaux</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q8')"><span class="option-letter">D</span> Souffle systolique</button>
+      </div>
+      <div class="feedback correct" id="fb-q8-correct">✅ <strong>Correct !</strong> Occlusion fonctionnelle = l'intestin ne se contracte plus (paralysie) → silence auscultatoire. À différencier de la mécanique avancée (strangulation) qui peut aussi se compliquer de silence.</div>
+      <div class="feedback wrong" id="fb-q8-wrong">❌ B est correct. Fonctionnelle = silence auscultatoire (pas de péristaltisme). Mécanique (début) = bruits de lutte augmentés.</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card">
+      <div class="q-num">Question 9 / 10</div>
+      <div class="q-text">Parmi les bézoards, lequel est constitué de fibres végétales ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q9')"><span class="option-letter">A</span> Trichobézoard</button>
+        <button class="option-btn" onclick="answer(this,'correct','q9')"><span class="option-letter">B</span> Phytobézoard</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q9')"><span class="option-letter">C</span> Pharmacobézoard</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q9')"><span class="option-letter">D</span> Lactobézoard</button>
+      </div>
+      <div class="feedback correct" id="fb-q9-correct">✅ <strong>Correct !</strong> Phyto = végétal (fibres végétales). Tricho = poils/cheveux/ongles. Pharmaco = médicaments. Lacto = lait coagulé (nourrisson).</div>
+      <div class="feedback wrong" id="fb-q9-wrong">❌ B est correct. Phyto = végétal. Mémorisez : Phyto/végétal — Tricho/poils — Pharmaco/médicaments — Lacto/lait.</div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card">
+      <div class="q-num">Question 10 / 10</div>
+      <div class="q-text">L'alcalose métabolique est une complication retrouvée dans :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q10')"><span class="option-letter">A</span> Occlusion haute (perte d'HCl par vomissements)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q10')"><span class="option-letter">B</span> Occlusion basse</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q10')"><span class="option-letter">C</span> Occlusion colique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q10')"><span class="option-letter">D</span> Toutes les occlusions</button>
+      </div>
+      <div class="feedback correct" id="fb-q10-correct">✅ <strong>Correct !</strong> Occlusion haute → vomissements de liquide gastrique acide (HCl) → alcalose métabolique. Occlusion basse → perte de liquide alcalin → acidose métabolique.</div>
+      <div class="feedback wrong" id="fb-q10-wrong">❌ A est correct. Haute → perte d'HCl par Vx → alcalose métabolique. Basse → perte de bicarbonates → acidose.</div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="submit-qcm" onclick="calcScore('qcm1',10)">📊 Voir mon score</button>
+      <button class="reset-qcm" onclick="resetQcm('qcm1',10)">🔄 Recommencer</button>
+    </div>
+    <div class="qcm-score" id="score-qcm1">
+      <div class="score-big" id="score-num-qcm1">—</div>
+      <div class="score-label">Questions correctes sur 10</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- THÈME 2 : INVAGINATION -->
+<!-- ============================================================ -->
+<div class="section-wrap" id="t2">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fef2f2;">🔴</div>
+    <div>
+      <div class="section-num">Thème 2</div>
+      <div class="section-title">Invagination Intestinale</div>
+    </div>
+  </div>
+
+  <div class="alert alert-red">
+    <strong>⚠️ DÉFINITION</strong>
+    Une anse intestinale s'invagine dans une anse adjacente → occlusion + ischémie. Urgence diagnostique et thérapeutique.
+  </div>
+
+  <div class="card-2col">
+    <div class="card">
+      <div class="card-title">🧒 Chez le nourrisson (&lt;2 ans)</div>
+      <ul class="fact-list red">
+        <li><strong>Idiopathique</strong> dans 95% des cas</li>
+        <li>Plaques de Peyer hypertrophiées</li>
+        <li>Après infection virale : <span class="badge badge-red">Rotavirus</span> <span class="badge badge-orange">Rougeole</span> <span class="badge badge-purple">Oreillons</span></li>
+        <li>Moins de 2 ans : pas de cause retrouvée</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">👤 Chez l'adulte (&gt;2 ans)</div>
+      <ul class="fact-list orange">
+        <li><strong>Secondaire</strong> dans 95% des cas → toujours chercher une cause</li>
+        <li>Jeune adulte : diverticule de Meckel, polype, duplication intestinale</li>
+        <li>&gt;50 ans : cancer, lymphome (chercher systématiquement)</li>
+        <li>Vaccin ROR peut favoriser chez jeune enfant</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Types -->
+  <div class="card">
+    <div class="card-title">📊 Types d'invagination</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Segment</th><th>Fréquence</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Iléo-colique ★</strong></td><td>Iléon → côlon (par valvule de Bauhin)</td><td><span class="badge badge-red">La plus fréquente</span></td></tr>
+          <tr><td>Iléo-appendico-caeco-colique</td><td>Iléon + appendice → caecum → côlon ascendant</td><td>Fréquente</td></tr>
+          <tr><td>Iléo-iléale</td><td>Iléon → iléon</td><td>Rarement pathologique</td></tr>
+          <tr><td>Jéjuno-jéjunale</td><td>Jéjunum → jéjunum</td><td>Rare</td></tr>
+          <tr><td>Jéjuno-iléale</td><td>Jéjunum → iléon</td><td>Rare</td></tr>
+          <tr><td>Colo-rectale</td><td>Côlon → rectum</td><td>Très rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Tableau clinique -->
+  <div class="card">
+    <div class="card-title">🩺 Tableau clinique nourrisson</div>
+    <div class="flex-wrap-gap" style="margin-bottom:12px;">
+      <span class="badge badge-red">Pleurs inconsolables paroxystiques</span>
+      <span class="badge badge-orange">Vomissements bilieux</span>
+      <span class="badge badge-purple">Distension abdominale</span>
+      <span class="badge badge-pink">Selles en gelée de groseille ★</span>
+      <span class="badge badge-blue">Masse palpable flanc droit</span>
+    </div>
+    <div class="key-fact">Selles en gelée de groseille = mélange sang + mucus = signe PATHOGNOMONIQUE de l'invagination chez le nourrisson</div>
+  </div>
+
+  <!-- Images échographie -->
+  <div class="img-grid">
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Intussusception_ultrasound.jpg/320px-Intussusception_ultrasound.jpg" alt="Échographie invagination" onerror="this.src='https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=320&q=80'">
+      <div class="img-caption">Échographie : image en boudin (sandwitch) — signe d'invagination</div>
+    </div>
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Intussusception_barium_enema.jpg/320px-Intussusception_barium_enema.jpg" alt="Lavement baryté invagination" onerror="this.src='https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=320&q=80'">
+      <div class="img-caption">Lavement baryté : image en cupule / bec d'oiseau — diagnostic et thérapeutique</div>
+    </div>
+  </div>
+
+  <!-- Diagnostic -->
+  <div class="card">
+    <div class="card-title">🔬 Diagnostic</div>
+    <ul class="fact-list">
+      <li><strong>Échographie</strong> → image en boudin / sandwitch + déshabituation de la FID = examen de choix</li>
+      <li><strong>ASP</strong> → si pas d'écho disponible : déshabituation FID, distension des anses</li>
+      <li><strong>Lavement baryté ou hydrosoluble</strong> → image en cupule/bec d'oiseau ; à la fois DIAGNOSTIQUE et THÉRAPEUTIQUE</li>
+      <li>TDM et échographie : aussi utiles pour bilan d'extension chez l'adulte</li>
+    </ul>
+    <div class="alert alert-blue" style="margin-top:10px;">
+      <strong>Diagnostic différentiel :</strong> Gastro-entérite (PAS d'AGM ni de selles sanglantes), volvulus, appendicite, hernie étranglée, méningite-encéphalite, coliques
+    </div>
+  </div>
+
+  <!-- QCM Thème 2 -->
+  <div class="qcm-section" id="qcm2">
+    <div class="qcm-header">
+      <div style="font-size:28px;">📝</div>
+      <div><div class="qcm-title">QCM — Invagination (10 questions)</div></div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 1/10</div>
+      <div class="q-text">Le signe pathognomonique de l'invagination chez le nourrisson est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q2_1')"><span class="option-letter">A</span> Vomissements bilieux</button>
+        <button class="option-btn" onclick="answer(this,'correct','q2_1')"><span class="option-letter">B</span> Selles en gelée de groseille</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_1')"><span class="option-letter">C</span> Distension abdominale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_1')"><span class="option-letter">D</span> Fièvre élevée</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_1-correct">✅ Les selles en gelée de groseille (sang + mucus) sont pathognomoniques de l'invagination chez le nourrisson.</div>
+      <div class="feedback wrong" id="fb-q2_1-wrong">❌ B est correct. Selles en gelée de groseille = signal d'alarme = invagination jusqu'à preuve du contraire.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 2/10</div>
+      <div class="q-text">L'invagination la plus fréquente est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q2_2')"><span class="option-letter">A</span> Iléo-colique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_2')"><span class="option-letter">B</span> Iléo-iléale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_2')"><span class="option-letter">C</span> Jéjuno-jéjunale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_2')"><span class="option-letter">D</span> Colo-rectale</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_2-correct">✅ L'iléo-colique est la plus fréquente (iléon → côlon via valvule de Bauhin). Iléo-iléale rarement pathologique.</div>
+      <div class="feedback wrong" id="fb-q2_2-wrong">❌ A est correct. Iléo-colique = la plus fréquente.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 3/10</div>
+      <div class="q-text">Chez un enfant de 6 mois avec invagination suspectée, quel est l'examen de 1ère intention ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q2_3')"><span class="option-letter">A</span> ASP debout</button>
+        <button class="option-btn" onclick="answer(this,'correct','q2_3')"><span class="option-letter">B</span> Échographie abdominale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_3')"><span class="option-letter">C</span> TDM abdominale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_3')"><span class="option-letter">D</span> Coloscopie</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_3-correct">✅ L'échographie est l'examen de choix dans l'invagination (image en boudin/sandwitch + déshabituation FID). Pas de radiation ionisante.</div>
+      <div class="feedback wrong" id="fb-q2_3-wrong">❌ B est correct. Échographie = 1er choix pour invagination (image en sandwitch).</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 4/10</div>
+      <div class="q-text">Le lavement baryté dans l'invagination est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q2_4')"><span class="option-letter">A</span> Uniquement diagnostique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_4')"><span class="option-letter">B</span> Uniquement thérapeutique</button>
+        <button class="option-btn" onclick="answer(this,'correct','q2_4')"><span class="option-letter">C</span> À la fois diagnostique ET thérapeutique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_4')"><span class="option-letter">D</span> Contre-indiqué</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_4-correct">✅ Le lavement est DOUBLE : diagnostique (image en cupule/bec d'oiseau) ET thérapeutique (pression hydraulique réduit l'invagination).</div>
+      <div class="feedback wrong" id="fb-q2_4-wrong">❌ C est correct. Lavement = diagnostic + traitement en même temps.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 5/10</div>
+      <div class="q-text">Chez un adulte de 55 ans avec invagination intestinale, quelle cause doit-on chercher en priorité ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q2_5')"><span class="option-letter">A</span> Infection virale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_5')"><span class="option-letter">B</span> Plaques de Peyer hypertrophiées</button>
+        <button class="option-btn" onclick="answer(this,'correct','q2_5')"><span class="option-letter">C</span> Cancer / lymphome colique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_5')"><span class="option-letter">D</span> Idiopathique</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_5-correct">✅ Chez l'adulte : 95% ont une cause organique. &gt;50 ans → chercher cancer ou polype systématiquement.</div>
+      <div class="feedback wrong" id="fb-q2_5-wrong">❌ C est correct. L'adulte avec invagination = cause organique dans 95% (cancer, lymphome, polype...).</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 6/10</div>
+      <div class="q-text">La déshabituation de la FID sur l'ASP dans l'invagination signifie :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q2_6')"><span class="option-letter">A</span> Présence d'air dans le côlon droit</button>
+        <button class="option-btn" onclick="answer(this,'correct','q2_6')"><span class="option-letter">B</span> Absence de gaz dans la fosse iliaque droite (caecum vide)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_6')"><span class="option-letter">C</span> Masse calcifiée dans la FID</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_6')"><span class="option-letter">D</span> Distension des anses grêles</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_6-correct">✅ La FID est normalement habitée par le caecum gazeux. L'invagination iléo-colique déplace le caecum → zone FID vide de gaz = déshabituation.</div>
+      <div class="feedback wrong" id="fb-q2_6-wrong">❌ B est correct. Déshabituation FID = caecum déplacé par l'invagination → plus de gaz visible en FID.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 7/10</div>
+      <div class="q-text">Le mécanisme de l'invagination idiopathique du nourrisson implique :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q2_7')"><span class="option-letter">A</span> Une malformation congénitale des anses</button>
+        <button class="option-btn" onclick="answer(this,'correct','q2_7')"><span class="option-letter">B</span> Hypertrophie des plaques de Peyer après infection virale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_7')"><span class="option-letter">C</span> Une hypokaliémie sévère</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_7')"><span class="option-letter">D</span> Une hernie interne</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_7-correct">✅ L'infection virale (rotavirus, rougeole, oreillons) → hypertrophie des plaques de Peyer → point d'appel → invagination idiopathique.</div>
+      <div class="feedback wrong" id="fb-q2_7-wrong">❌ B est correct. Virus → plaques de Peyer gonflées → point d'entraînement → invagination.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 8/10</div>
+      <div class="q-text">La complication grave de l'invagination non traitée est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q2_8')"><span class="option-letter">A</span> Appendicite aiguë</button>
+        <button class="option-btn" onclick="answer(this,'correct','q2_8')"><span class="option-letter">B</span> Ischémie et nécrose de l'anse invaginée + péritonite</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_8')"><span class="option-letter">C</span> Hernie inguinale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_8')"><span class="option-letter">D</span> Invagination de la vésicule biliaire</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_8-correct">✅ L'anse invaginée + vaisseaux lymphatiques et nerveux → compression vasculaire → ischémie → nécrose → perforation → péritonite.</div>
+      <div class="feedback wrong" id="fb-q2_8-wrong">❌ B est correct. Non traitement → ischémie → nécrose → perforation → péritonite.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 9/10</div>
+      <div class="q-text">L'invagination chez le nourrisson de moins de 2 ans est le plus souvent :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q2_9')"><span class="option-letter">A</span> Idiopathique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_9')"><span class="option-letter">B</span> Secondaire à un cancer</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_9')"><span class="option-letter">C</span> D'origine parasitaire</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_9')"><span class="option-letter">D</span> Secondaire à un diverticule</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_9-correct">✅ &lt;2 ans → idiopathique (quasi 100%). &gt;2 ans → rechercher cause organique. &gt;50 ans → cancer/lymphome.</div>
+      <div class="feedback wrong" id="fb-q2_9-wrong">❌ A est correct. &lt;2 ans = idiopathique. &gt;2 ans = secondaire 95%.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 10/10</div>
+      <div class="q-text">L'image échographique caractéristique de l'invagination est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q2_10')"><span class="option-letter">A</span> Image en cible</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_10')"><span class="option-letter">B</span> Épanchement libre</button>
+        <button class="option-btn" onclick="answer(this,'correct','q2_10')"><span class="option-letter">C</span> Image en boudin / sandwitch (en coupe transversale)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q2_10')"><span class="option-letter">D</span> Calcification pariétale</button>
+      </div>
+      <div class="feedback correct" id="fb-q2_10-correct">✅ L'anse invaginée dans une autre anse forme une image caractéristique en boudin (longitudinal) / sandwich/cocarde (transversal). Classiquement image en cible (=cocarde) est aussi acceptée.</div>
+      <div class="feedback wrong" id="fb-q2_10-wrong">❌ C est correct. Image en boudin/sandwitch = anse dans anse vue à l'écho.</div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="submit-qcm" onclick="calcScore('qcm2',10)">📊 Voir mon score</button>
+      <button class="reset-qcm" onclick="resetQcm('qcm2',10)">🔄 Recommencer</button>
+    </div>
+    <div class="qcm-score" id="score-qcm2">
+      <div class="score-big" id="score-num-qcm2">—</div>
+      <div class="score-label">Questions correctes sur 10</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- THÈME 3 : VOLVULUS -->
+<!-- ============================================================ -->
+<div class="section-wrap" id="t3">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fffbeb;">🌀</div>
+    <div>
+      <div class="section-num">Thème 3</div>
+      <div class="section-title">Volvulus</div>
+    </div>
+  </div>
+
+  <div class="alert alert-orange">
+    <strong>⚠️ DÉFINITION</strong>
+    Torsion d'une anse intestinale ou du côlon sur son axe mésentérique → occlusion mécanique + compromission vasculaire.
+  </div>
+
+  <div class="card-2col">
+    <div class="card">
+      <div class="card-title">📍 Anatomie clef</div>
+      <ul class="fact-list orange">
+        <li><strong>Mésentère</strong> : péritoine reliant les anses grêles à la paroi postérieure</li>
+        <li><strong>Mésocôlon sigmoïde</strong> : relie le côlon sigmoïde à la paroi post</li>
+        <li><strong>Mésocôlon transverse</strong> : suspend le côlon transverse à la paroi post</li>
+        <li>L'anse se tord SUR son axe mésentérique ou méso-colonique</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">👴 Épidémiologie</div>
+      <ul class="fact-list">
+        <li>Surtout chez les <strong>vieillards</strong></li>
+        <li>Beaucoup plus fréquent chez les <strong>hommes</strong></li>
+        <li>Facteurs favorisants : constipation chronique, mégacôlon, alimentation riche en fibres</li>
+        <li>Volvulus du sigmoïde = le plus fréquent</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⚡ Conséquences physiopathologiques</div>
+    <ul class="fact-list">
+      <li>Torsion → accumulation air, liquide, débris alimentaires en amont</li>
+      <li>Distension progressive → anse complètement collabée si strangulation</li>
+      <li>Compromission vasculaire à l'endroit de la torsion → ischémie → nécrose → péritonite</li>
+      <li>Signes de gravité : contracture, résistance, rebond = signe d'atteinte péritonéale</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🩺 Sémiologie clinique</div>
+    <div class="card-2col">
+      <div>
+        <ul class="fact-list">
+          <li>Douleur abdominale violente et brutale</li>
+          <li>AGM complet</li>
+          <li><strong>Distension asymétrique ★</strong> (signe évocateur du volvulus)</li>
+          <li>Vomissements moins précoces que dans le grêle</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="fact-list">
+          <li>Percussion : <strong>hypertympanisme</strong></li>
+          <li>Auscultation : bruits de lutte → <strong>silence auscultatoire</strong></li>
+          <li>Signes péritonéaux si nécrose (contracture, rebond)</li>
+          <li>État général rapidement altéré</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔬 Paraclinique</div>
+    <ul class="fact-list">
+      <li><strong>ASP :</strong> NHA + image spécifique du volvulus (grande anse distale en U inversé)</li>
+      <li><strong>Lavement baryté :</strong> image en bec d'oiseau / spirale = signe du volvulus</li>
+      <li><strong>TDM :</strong> confirme le diagnostic, bilan d'ischémie</li>
+      <li>Biologie : leucocytose, ionogramme, déshydratation</li>
+    </ul>
+    <div class="key-fact">Image en bec d'oiseau au lavement baryté = signe du volvulus du sigmoïde</div>
+  </div>
+
+  <div class="img-grid">
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Volvulus_2.jpg/320px-Volvulus_2.jpg" alt="Volvulus ASP" onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=320&q=80'">
+      <div class="img-caption">ASP : Volvulus du sigmoïde — grande anse distale, image en grain de café</div>
+    </div>
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Volvulus_coffee_bean.jpg/320px-Volvulus_coffee_bean.jpg" alt="Volvulus image grain de café" onerror="this.src='https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=320&q=80'">
+      <div class="img-caption">ASP : image en grain de café — volvulus du sigmoïde</div>
+    </div>
+  </div>
+
+  <!-- QCM Thème 3 -->
+  <div class="qcm-section" id="qcm3">
+    <div class="qcm-header">
+      <div style="font-size:28px;">📝</div>
+      <div><div class="qcm-title">QCM — Volvulus & Brides (10 questions)</div></div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 1/10</div>
+      <div class="q-text">Quel est le signe clinique évocateur du volvulus à l'inspection abdominale ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q3_1')"><span class="option-letter">A</span> Distension diffuse et symétrique</button>
+        <button class="option-btn" onclick="answer(this,'correct','q3_1')"><span class="option-letter">B</span> Distension asymétrique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_1')"><span class="option-letter">C</span> Abdomen plat</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_1')"><span class="option-letter">D</span> Contracture généralisée d'emblée</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_1-correct">✅ La distension asymétrique est caractéristique du volvulus car une seule anse (sigmoïde, grêle) se distend de façon disproportionnée d'un côté.</div>
+      <div class="feedback wrong" id="fb-q3_1-wrong">❌ B est correct. Distension asymétrique = volvulus jusqu'à preuve du contraire.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 2/10</div>
+      <div class="q-text">Le volvulus touche préférentiellement :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q3_2')"><span class="option-letter">A</span> Les nourrissons</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_2')"><span class="option-letter">B</span> Les femmes jeunes</button>
+        <button class="option-btn" onclick="answer(this,'correct','q3_2')"><span class="option-letter">C</span> Les vieillards, plus souvent les hommes</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_2')"><span class="option-letter">D</span> Également toutes les tranches d'âge</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_2-correct">✅ Volvulus = sujet âgé, beaucoup plus souvent chez les hommes. Facteurs : constipation chronique, méga-côlon.</div>
+      <div class="feedback wrong" id="fb-q3_2-wrong">❌ C est correct. Vieillard + homme = profil classique du volvulus.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 3/10</div>
+      <div class="q-text">L'image radiologique caractéristique du volvulus au lavement baryté est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q3_3')"><span class="option-letter">A</span> Image en boudin</button>
+        <button class="option-btn" onclick="answer(this,'correct','q3_3')"><span class="option-letter">B</span> Image en bec d'oiseau / spirale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_3')"><span class="option-letter">C</span> Image en cupule</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_3')"><span class="option-letter">D</span> Croissant gazeux sous-diaphragmatique</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_3-correct">✅ Le bec d'oiseau = image spécifique du volvulus au lavement baryté. Le produit de contraste s'arrête au point de torsion en forme de bec.</div>
+      <div class="feedback wrong" id="fb-q3_3-wrong">❌ B est correct. Volvulus → bec d'oiseau. Invagination → cupule/boudin.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 4/10</div>
+      <div class="q-text">Les brides/adhérences représentent :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q3_4')"><span class="option-letter">A</span> La 1ère cause d'occlusion intestinale dans le monde</span></button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_4')"><span class="option-letter">B</span> La 3ème cause d'occlusion intestinale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_4')"><span class="option-letter">C</span> Une cause exceptionnelle d'occlusion</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_4')"><span class="option-letter">D</span> Uniquement une complication des chirurgies coliques</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_4-correct">✅ Les brides/adhérences sont la 1ère cause d'occlusion dans le monde (occlusion sur brides = post-opératoire par fibrose).</div>
+      <div class="feedback wrong" id="fb-q3_4-wrong">❌ A est correct. 1ère cause mondiale = adhérences/brides post-opératoires.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 5/10</div>
+      <div class="q-text">Le mécanisme de formation des brides est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q3_5')"><span class="option-letter">A</span> Infection bactérienne locale</button>
+        <button class="option-btn" onclick="answer(this,'correct','q3_5')"><span class="option-letter">B</span> Cicatrisation post-opératoire par fibrose</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_5')"><span class="option-letter">C</span> Malformation congénitale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_5')"><span class="option-letter">D</span> Traumatisme direct</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_5-correct">✅ Toute chirurgie → cicatrisation → fibrose → l'anse peut adhérer à la cicatrice et créer une bride qui comprime → occlusion.</div>
+      <div class="feedback wrong" id="fb-q3_5-wrong">❌ B est correct. Brides = cicatrisation par fibrose post-chirurgicale.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 6/10</div>
+      <div class="q-text">Les signes de gravité dans le volvulus incluent TOUS sauf :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q3_6')"><span class="option-letter">A</span> Contracture abdominale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_6')"><span class="option-letter">B</span> Rebond positif</button>
+        <button class="option-btn" onclick="answer(this,'correct','q3_6')"><span class="option-letter">C</span> Distension asymétrique isolée</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_6')"><span class="option-letter">D</span> Choc hémodynamique</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_6-correct">✅ La distension asymétrique seule est un signe évocateur du volvulus mais PAS de gravité. Les signes de gravité sont ceux de nécrose/péritonite : contracture, rebond, fièvre, choc.</div>
+      <div class="feedback wrong" id="fb-q3_6-wrong">❌ C est correct. Distension asymétrique = signe du volvulus mais pas de gravité. Contracture, rebond, choc = signes de gravité.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 7/10</div>
+      <div class="q-text">Quel est l'examen paraclinique à demander en 1ère intention devant un volvulus ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q3_7')"><span class="option-letter">A</span> ASP debout de face</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_7')"><span class="option-letter">B</span> Échographie seule</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_7')"><span class="option-letter">C</span> IRM abdomino-pelvienne</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_7')"><span class="option-letter">D</span> Colonoscopie en urgence</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_7-correct">✅ ASP en 1ère intention. Pour le volvulus : l'ASP couché de face peut montrer la grande anse distale en U. Le lavement baryté confirme et peut tenter une réduction.</div>
+      <div class="feedback wrong" id="fb-q3_7-wrong">❌ A est correct. ASP = toujours 1ère intention dans l'occlusion (sauf invagination).</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 8/10</div>
+      <div class="q-text">Quelle structure mésentérique est impliquée dans le volvulus du grêle ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q3_8')"><span class="option-letter">A</span> Le mésentère</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_8')"><span class="option-letter">B</span> Le mésocôlon sigmoïde</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_8')"><span class="option-letter">C</span> Le mésocôlon transverse</span></button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_8')"><span class="option-letter">D</span> Le grand épiploon</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_8-correct">✅ Mésentère = pour les anses grêles. Mésocôlon sigmoïde = pour le côlon sigmoïde. Mésocôlon transverse = pour le côlon transverse.</div>
+      <div class="feedback wrong" id="fb-q3_8-wrong">❌ A est correct. Grêle = mésentère. Sigmoïde = mésocôlon sigmoïde. Transverse = mésocôlon transverse.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 9/10</div>
+      <div class="q-text">Dans le volvulus, le silence auscultatoire survient quand :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q3_9')"><span class="option-letter">A</span> Au début de la torsion</button>
+        <button class="option-btn" onclick="answer(this,'correct','q3_9')"><span class="option-letter">B</span> L'anse est nécrosée et épuisée (plus de péristaltisme)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_9')"><span class="option-letter">C</span> Après réduction du volvulus</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_9')"><span class="option-letter">D</span> Toujours dès le début</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_9-correct">✅ Au début : bruits de lutte (l'intestin contracte contre l'obstacle). Après nécrose ou strangulation avancée : silence auscultatoire (l'intestin ne contracte plus).</div>
+      <div class="feedback wrong" id="fb-q3_9-wrong">❌ B est correct. Début = bruits de lutte. Tardif/nécrose = silence auscultatoire.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 10/10</div>
+      <div class="q-text">En cas de signe péritonéal dans un volvulus, cela signifie :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q3_10')"><span class="option-letter">A</span> Simple torsion sans complication</button>
+        <button class="option-btn" onclick="answer(this,'correct','q3_10')"><span class="option-letter">B</span> L'anse a éclaté ou est nécrosée → contenu intestinal dans la cavité péritonéale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_10')"><span class="option-letter">C</span> Diagnostic de gastro-entérite</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q3_10')"><span class="option-letter">D</span> Occlusion fonctionnelle associée</button>
+      </div>
+      <div class="feedback correct" id="fb-q3_10-correct">✅ Nécrose → perforation → contenu septique dans le péritoine → irritation péritonéale → contracture/rebond. C'est une urgence chirurgicale absolue.</div>
+      <div class="feedback wrong" id="fb-q3_10-wrong">❌ B est correct. Signe péritonéal = nécrose/perforation → urgence chirurgicale vitale.</div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="submit-qcm" onclick="calcScore('qcm3',10)">📊 Voir mon score</button>
+      <button class="reset-qcm" onclick="resetQcm('qcm3',10)">🔄 Recommencer</button>
+    </div>
+    <div class="qcm-score" id="score-qcm3">
+      <div class="score-big" id="score-num-qcm3">—</div>
+      <div class="score-label">Questions correctes sur 10</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- THÈME 4 : BRIDES (inclus dans le QCM 3 ci-dessus) -->
+<!-- ============================================================ -->
+<div class="section-wrap" id="t4">
+  <div class="section-header">
+    <div class="section-icon" style="background:#f0fdfa;">🔗</div>
+    <div>
+      <div class="section-num">Thème 4</div>
+      <div class="section-title">Brides &amp; Adhérences</div>
+    </div>
+  </div>
+
+  <div class="card-2col">
+    <div class="card">
+      <div class="card-title">📌 Définition</div>
+      <ul class="fact-list">
+        <li><strong>1ère cause</strong> d'occlusion intestinale dans le monde</li>
+        <li>Provoquées par cicatrisation post-opératoire (fibrose)</li>
+        <li>L'anse adhère à la cicatrice → compression → occlusion</li>
+        <li>La cicatrisation se fait toujours par fibrose</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">⚠️ Mécanisme</div>
+      <ul class="fact-list orange">
+        <li>Toute chirurgie abdominale = risque de brides</li>
+        <li>Inflammation post-op → fibrose → adhérence anse/paroi</li>
+        <li>L'anse liée à la cicatrice → comprimée → lumière rétrécie ou fermée</li>
+        <li>Tableau d'occlusion mécanique (classique)</li>
+        <li>Antécédent chirurgical = indice clef !</li>
+      </ul>
+    </div>
+  </div>
+  <div class="key-fact">Devant toute occlusion intestinale, toujours interroger sur les antécédents chirurgicaux → cicatrice abdominale visible = penser aux brides en 1er</div>
+</div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- THÈME 5 : SYNDROME TUMORAL ABDOMINAL -->
+<!-- ============================================================ -->
+<div class="section-wrap" id="t5">
+  <div class="section-header">
+    <div class="section-icon" style="background:#eff6ff;">🔵</div>
+    <div>
+      <div class="section-num">Thème 5</div>
+      <div class="section-title">Syndrome Tumoral Abdominal</div>
+    </div>
+  </div>
+
+  <div class="alert alert-blue">
+    <strong>⚠️ DÉFINITION</strong>
+    Toute masse abdominale visible ou palpable, quelle que soit sa nature.
+  </div>
+
+  <div class="card">
+    <div class="card-title">🗺️ Division anatomique de l'abdomen</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Compartiment</th><th>Limite</th><th>Contenu</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sus-mésocolique</strong></td><td>Au-dessus du mésocôlon transverse</td><td>Foie, rate, estomac, pancréas, duodénum</td></tr>
+          <tr><td><strong>Sous-mésocolique</strong></td><td>En-dessous du mésocôlon transverse</td><td>Grêle, côlon, mésentère</td></tr>
+          <tr><td><strong>Bassin</strong></td><td>Pelvis</td><td>Utérus, ovaires, vessie, rectum</td></tr>
+          <tr><td><strong>Cavité péritonéale</strong></td><td>En avant du péritoine pariétal post</td><td>Viscères abdominaux</td></tr>
+          <tr><td><strong>Rétropéritonéal</strong></td><td>En arrière du péritoine</td><td>Reins, surrénales, aorte, psoas, pancréas</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📊 Classification des syndromes tumoraux</div>
+    <div class="grid-3">
+      <div class="card" style="border-color:var(--blue-mid);background:var(--blue-light);">
+        <div class="card-title" style="color:var(--blue);">1️⃣ S. Tumoral Pariétal</div>
+        <ul class="fact-list" style="font-size:13px;">
+          <li>Paroi antérieure</li>
+          <li>Paroi postérieure</li>
+          <li>Région inguino-scrotale</li>
+          <li>Suit les contractions musculaires</li>
+          <li>Manœuvre de Smith Bates</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:#c4b5fd;background:var(--purple-light);">
+        <div class="card-title" style="color:var(--purple);">2️⃣ S. Tumoral Intra-péritonéal</div>
+        <ul class="fact-list" style="font-size:13px;">
+          <li>Mobilité lors respiration</li>
+          <li>Masse intra-abdo</li>
+          <li>Echo/TDM pour siège</li>
+          <li>Côté paroi = moins évident</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:#fca5a5;background:var(--red-light);">
+        <div class="card-title" style="color:var(--red);">3️⃣ S. Tumoral Rétropéritonéal</div>
+        <ul class="fact-list" style="font-size:13px;">
+          <li>Masse fixe (ne suit pas la respiration)</li>
+          <li>Contact lombaire positif</li>
+          <li>Kyste rénal, hydronéphrose</li>
+          <li>Phéochromocytome, anévrisme aorte</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Localisation par quadrant -->
+  <div class="card">
+    <div class="card-title">🗺️ Masses par quadrant — À savoir par cœur</div>
+    <div class="anatomy-grid">
+      <div class="anatomy-item"><div class="loc">Hypochondre D</div>Foie, vésicule, rein D, côlon D</div>
+      <div class="anatomy-item"><div class="loc">Épigastre</div>Estomac, pancréas, aorte</div>
+      <div class="anatomy-item"><div class="loc">Hypochondre G</div>Rate, rein G, angle colique G, surrénale G</div>
+      <div class="anatomy-item"><div class="loc">Flanc D</div>Côlon ascendant, rein D</div>
+      <div class="anatomy-item"><div class="loc">Ombilical</div>Anse intestinale, grossesse, fibrome</div>
+      <div class="anatomy-item"><div class="loc">Flanc G</div>Côlon descendant, rein G</div>
+      <div class="anatomy-item"><div class="loc">Fosse iliaque D</div>Appendice, caecum, tératome, kyste ovaire D, plastron appendiculaire</div>
+      <div class="anatomy-item"><div class="loc">Hypogastre</div>Utérus, vessie, rectum (femme)</div>
+      <div class="anatomy-item"><div class="loc">Fosse iliaque G</div>Sigmoïde, ovaire G</div>
+    </div>
+  </div>
+
+  <!-- Masses spécifiques -->
+  <div class="card">
+    <div class="card-title">📋 Caractéristiques des masses spécifiques</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Masse</th><th>Caractéristiques clefs</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Lipome</strong></td><td>Graisse / bénigne / petite taille / contour arrondi / non douloureuse / non pulsatile / mobile / irréductible / sous-cutanée. Localisation : lombaire, tronc, membres</td></tr>
+          <tr><td><strong>Kyste sébacé</strong></td><td>Glande sébacée obstruée / mobile / non douloureux sauf si infecté / <strong>point noir</strong> sur la masse = orifice du canal / peut devenir infecté → kyste pulsatile douloureux</td></tr>
+          <tr><td><strong>Masse hépatique</strong></td><td>Sus-costale D / mobile avec la respiration / douleur de type colique hépatique / atteint aussi l'hypocondre droit</td></tr>
+          <tr><td><strong>Masse vésicale</strong></td><td>Normalement non palpable / si grosse → sous-ombilicale / disparaît à la miction / manœuvre de Valsalva / signe de matité</td></tr>
+          <tr><td><strong>Sérome</strong></td><td>Rapport avec cicatrice / accumulation de sérosités / masse post-opératoire</td></tr>
+          <tr><td><strong>Hygrome</strong></td><td>Affecte les grandes bourses séreuses / douloureux peu / évolution sous-aiguë / arrondi / chronique</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="key-fact">Manœuvre de Smith-Bates : si masse disparaît quand on contracte les muscles abdominaux → masse INTRA-péritonéale. Si persiste/accentuée → masse PARIÉTALE.</div>
+  </div>
+
+  <!-- QCM Thème 5 -->
+  <div class="qcm-section" id="qcm5">
+    <div class="qcm-header">
+      <div style="font-size:28px;">📝</div>
+      <div><div class="qcm-title">QCM — Syndrome Tumoral (10 questions)</div></div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 1/10</div>
+      <div class="q-text">La manœuvre de Smith-Bates permet de distinguer :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q5_1')"><span class="option-letter">A</span> Masse pariétale vs masse intra-péritonéale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_1')"><span class="option-letter">B</span> Masse bénigne vs maligne</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_1')"><span class="option-letter">C</span> Masse vascularisée vs avasculaire</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_1')"><span class="option-letter">D</span> Masse douloureuse vs indolore</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_1-correct">✅ Smith-Bates : contraction des muscles abdominaux → masse pariétale s'accentue / masse intra-péritonéale disparaît (protégée par les muscles).</div>
+      <div class="feedback wrong" id="fb-q5_1-wrong">❌ A est correct. Smith-Bates = pariétal vs intra-péritonéal.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 2/10</div>
+      <div class="q-text">Une masse qui disparaît à la miction est évocatrice de :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5_2')"><span class="option-letter">A</span> Kyste ovarien</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5_2')"><span class="option-letter">B</span> Masse vésicale / globe vésical</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_2')"><span class="option-letter">C</span> Lipome</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_2')"><span class="option-letter">D</span> Fibrome utérin</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_2-correct">✅ La masse vésicale (globe vésical = rétention urinaire) disparaît après miction ou sondage vésical. Signe clef pour différencier une masse sus-pubienne.</div>
+      <div class="feedback wrong" id="fb-q5_2-wrong">❌ B est correct. Disparition à la miction = masse vésicale (globe).</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 3/10</div>
+      <div class="q-text">Le contact lombaire positif est évocateur d'une masse :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5_3')"><span class="option-letter">A</span> Intra-péritonéale</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5_3')"><span class="option-letter">B</span> Rétropéritonéale (rénale)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_3')"><span class="option-letter">C</span> Pariétale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_3')"><span class="option-letter">D</span> Pelvienne</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_3-correct">✅ Contact lombaire = main antérieure + main postérieure lombaire → sensation de choc = masse rétropéritonéale (rein, surrénale). Classique pour les tumeurs du rein.</div>
+      <div class="feedback wrong" id="fb-q5_3-wrong">❌ B est correct. Contact lombaire = masse rétropéritonéale (rénale +++)</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 4/10</div>
+      <div class="q-text">Une masse de la fosse iliaque droite peut être en rapport avec tous ces organes SAUF :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5_4')"><span class="option-letter">A</span> Appendice</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_4')"><span class="option-letter">B</span> Caecum</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_4')"><span class="option-letter">C</span> Kyste de l'ovaire droit</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5_4')"><span class="option-letter">D</span> Côlon sigmoïde</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_4-correct">✅ Le sigmoïde est en fosse iliaque GAUCHE. La FID contient : appendice, caecum, tératome, kyste ovaire droit, plastron appendiculaire.</div>
+      <div class="feedback wrong" id="fb-q5_4-wrong">❌ D est correct. Sigmoïde = fosse iliaque GAUCHE. La FID : appendice, caecum, kyste ovaire D, tératome.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 5/10</div>
+      <div class="q-text">Le lipome se caractérise par (plusieurs vraies — choisissez la PLUS complète) :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5_5')"><span class="option-letter">A</span> Pulsatile et douloureux</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5_5')"><span class="option-letter">B</span> Non douloureux, mobile, contour régulier, sous-cutané, irréductible</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_5')"><span class="option-letter">C</span> Réductible à la pression</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_5')"><span class="option-letter">D</span> Disparaît à l'effort</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_5-correct">✅ Lipome = masse graisseuse bénigne, non douloureuse, mobile, contour bien défini/arrondi, non pulsatile, irréductible, sous-cutanée.</div>
+      <div class="feedback wrong" id="fb-q5_5-wrong">❌ B est correct. Lipome = bénin, non douloureux, mobile, régulier, irréductible, sous-cutané.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 6/10</div>
+      <div class="q-text">Le kyste sébacé se distingue du lipome par :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5_6')"><span class="option-letter">A</span> Sa taille toujours importante</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5_6')"><span class="option-letter">B</span> Présence d'un point noir en surface (orifice du canal obstrué)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_6')"><span class="option-letter">C</span> Sa localisation profonde</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_6')"><span class="option-letter">D</span> Il est toujours pulsatile</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_6-correct">✅ Le point noir en surface = orifice du canal sébacé obstrué = signe caractéristique du kyste sébacé. Le lipome ne l'a pas.</div>
+      <div class="feedback wrong" id="fb-q5_6-wrong">❌ B est correct. Point noir = kyste sébacé (canal sébacé obstrué visible en surface).</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 7/10</div>
+      <div class="q-text">Parmi les masses rétropéritonéales, laquelle est associée à l'HTA secondaire et à des crises paroxystiques ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5_7')"><span class="option-letter">A</span> Kyste rénal simple</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5_7')"><span class="option-letter">B</span> Phéochromocytome</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_7')"><span class="option-letter">C</span> Hydronéphrose</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_7')"><span class="option-letter">D</span> Abcès du psoas</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_7-correct">✅ Phéochromocytome = tumeur de la médullosurrénale → sécrète catécholamines → HTA paroxystique + céphalées + sueurs. Masse rétropéritonéale surrénalienne.</div>
+      <div class="feedback wrong" id="fb-q5_7-wrong">❌ B est correct. Phéochromocytome = masse surrénale + HTA paroxystique + sueurs + céphalées.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 8/10</div>
+      <div class="q-text">Une masse qui suit les mouvements respiratoires est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5_8')"><span class="option-letter">A</span> Rétropéritonéale</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5_8')"><span class="option-letter">B</span> Intra-péritonéale (solidaire du parenchyme hépatique ou splénique)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_8')"><span class="option-letter">C</span> Pariétale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_8')"><span class="option-letter">D</span> Pelvienne</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_8-correct">✅ Les masses intra-péritonéales (foie, rate) sont solidaires du diaphragme → mobilité avec la respiration. Les masses rétropéritonéales sont fixes.</div>
+      <div class="feedback wrong" id="fb-q5_8-wrong">❌ B est correct. Mobile avec respiration = intra-péritonéale (foie/rate). Fixe = rétropéritonéale.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 9/10</div>
+      <div class="q-text">L'anévrisme de l'aorte abdominale se présente comme :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5_9')"><span class="option-letter">A</span> Masse de la fosse iliaque droite</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5_9')"><span class="option-letter">B</span> Masse épigastrique pulsatile battant au rythme du cœur</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_9')"><span class="option-letter">C</span> Masse du flanc gauche irréductible</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_9')"><span class="option-letter">D</span> Masse pelvienne indolore</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_9-correct">✅ Anévrisme aorte abdominale = masse médiane épigastrique, pulsatile (bat au rythme du cœur), expansive, souffle systolique à l'auscultation. Urgence si rupture.</div>
+      <div class="feedback wrong" id="fb-q5_9-wrong">❌ B est correct. Masse pulsatile épigastrique = penser à l'anévrisme de l'aorte abdominale.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 10/10</div>
+      <div class="q-text">Un sérome post-opératoire est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q5_10')"><span class="option-letter">A</span> Une hernie post-chirurgicale</button>
+        <button class="option-btn" onclick="answer(this,'correct','q5_10')"><span class="option-letter">B</span> Une accumulation de sérosités en rapport avec une cicatrice chirurgicale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_10')"><span class="option-letter">C</span> Un abcès post-opératoire</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q5_10')"><span class="option-letter">D</span> Un hématome infecté</button>
+      </div>
+      <div class="feedback correct" id="fb-q5_10-correct">✅ Sérome = collection liquidienne (sérosités) sur la ligne de cicatrice post-op. Non infecté, masse molle, fluctuante, en rapport direct avec cicatrice.</div>
+      <div class="feedback wrong" id="fb-q5_10-wrong">❌ B est correct. Sérome = sérosités accumulées autour de la cicatrice post-op.</div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="submit-qcm" onclick="calcScore('qcm5',10)">📊 Voir mon score</button>
+      <button class="reset-qcm" onclick="resetQcm('qcm5',10)">🔄 Recommencer</button>
+    </div>
+    <div class="qcm-score" id="score-qcm5">
+      <div class="score-big" id="score-num-qcm5">—</div>
+      <div class="score-label">Questions correctes sur 10</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- THÈME 6 : HERNIES -->
+<!-- ============================================================ -->
+<div class="section-wrap" id="t6">
+  <div class="section-header">
+    <div class="section-icon" style="background:#f0fdf4;">🏥</div>
+    <div>
+      <div class="section-num">Thème 6</div>
+      <div class="section-title">Les Hernies</div>
+    </div>
+  </div>
+
+  <div class="alert alert-green">
+    <strong>⚠️ DÉFINITION</strong>
+    Sortie d'un organe au-delà de ses limites normales par un orifice naturel ou acquis.
+  </div>
+
+  <!-- Constituants -->
+  <div class="card">
+    <div class="card-title">🔑 Les 3 constituants d'une hernie</div>
+    <div class="hernie-schema">
+      <div class="hernie-box"><strong>1. SAC</strong>Correspond à la paroi (péritoine pariétal invaginé). Peut ne pas être constitué.</div>
+      <div class="hernie-box"><strong>2. COLLET</strong>L'anneau, l'orifice, la faille. C'est là que se produit l'étranglement.</div>
+      <div class="hernie-box"><strong>3. CONTENU</strong>Viscère hernié (grêle, côlon, épiploon) + son liquide digestif.</div>
+    </div>
+  </div>
+
+  <!-- Types -->
+  <div class="card">
+    <div class="card-title">📊 Classification des hernies</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Siège / Mécanisme</th><th>Particularité</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Hernie inguinale indirecte ★</strong></td><td>Orifice inguinal interne → canal inguinal → hernie inguino-scrotale</td><td>La plus fréquente</td></tr>
+          <tr><td><strong>Hernie inguinale directe</strong></td><td>Paroi postérieure du canal inguinal</td><td>Souvent bilatérale, rarement occluse</td></tr>
+          <tr><td><strong>Hernie crurale ★</strong></td><td>Anneau crural (sous l'arcade de Fallope)</td><td>Souvent bilatérale, risque d'étranglement élevé</td></tr>
+          <tr><td><strong>Hernie obturatrice</strong></td><td>Foramen obturateur</td><td>Hernie de la paroi postérieure</td></tr>
+          <tr><td><strong>Hernie sciatique</strong></td><td>Grande incisure sciatique</td><td>Rare</td></tr>
+          <tr><td><strong>Hernie périnéale</strong></td><td>Plancher périnéal</td><td>Rare</td></tr>
+          <tr><td><strong>Hernie de Petit</strong></td><td>Triangle de Petit (lombes)</td><td>Triangle lombaire</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="key-fact">La hernie inguino-scrotale = hernie inguinale indirecte qui descend dans le scrotum via le canal inguinal</div>
+  </div>
+
+  <!-- Etats -->
+  <div class="card">
+    <div class="card-title">⚠️ États d'une hernie — savoir différencier</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>État</th><th>Définition</th><th>Clinique</th><th>Urgence ?</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-green">Réductible</span></td>
+            <td>Contenu rentre spontanément ou à la pression</td>
+            <td>Tuméfaction impulsive à la toux, disparaît au repos, non douloureuse, trans-illumination négative</td>
+            <td>Non</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-orange">Irréductible</span></td>
+            <td>Contenu ne rentre plus</td>
+            <td>Tuméfaction permanente, non réductible, peut être peu douloureuse</td>
+            <td>Surveillance</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-orange">Incarcérée</span></td>
+            <td>Irréductible SANS compromission vasculaire</td>
+            <td>Irréductible, douleur modérée, pas de signe ischémique</td>
+            <td>Urgence relative</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-red">Étranglée ★★★</span></td>
+            <td>Irréductible + compromission vasculaire</td>
+            <td>Douleur brutale et violente, hernie tendue irréductible, signes occlusifs, fièvre, vomissements</td>
+            <td><strong>URGENCE ABSOLUE</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="img-grid">
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Inguinal_hernia_right_side.jpg/320px-Inguinal_hernia_right_side.jpg" alt="Hernie inguinale" onerror="this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=320&q=80'">
+      <div class="img-caption">Hernie inguinale — tuméfaction de l'aine</div>
+    </div>
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Inguinal_hernia_anatomy.png/320px-Inguinal_hernia_anatomy.png" alt="Anatomie hernie inguinale" onerror="this.src='https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=320&q=80'">
+      <div class="img-caption">Anatomie de la hernie inguinale directe vs indirecte</div>
+    </div>
+  </div>
+
+  <!-- QCM Hernies -->
+  <div class="qcm-section" id="qcm6">
+    <div class="qcm-header">
+      <div style="font-size:28px;">📝</div>
+      <div><div class="qcm-title">QCM — Hernies (10 questions)</div></div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 1/10</div>
+      <div class="q-text">Une hernie étranglée est définie par :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q6_1')"><span class="option-letter">A</span> Hernie réductible avec douleur modérée</button>
+        <button class="option-btn" onclick="answer(this,'correct','q6_1')"><span class="option-letter">B</span> Hernie irréductible avec compromission vasculaire du contenu</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_1')"><span class="option-letter">C</span> Hernie bilatérale inguinale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_1')"><span class="option-letter">D</span> Hernie avec trans-illumination positive</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_1-correct">✅ Étranglée = irréductible + atteinte vasculaire du contenu → ischémie → nécrose si non opérée. C'est une urgence chirurgicale absolue.</div>
+      <div class="feedback wrong" id="fb-q6_1-wrong">❌ B est correct. Étranglée = irréductible + compromission vasculaire = urgence absolue.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 2/10</div>
+      <div class="q-text">La hernie la plus fréquente est :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q6_2')"><span class="option-letter">A</span> Hernie inguinale indirecte</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_2')"><span class="option-letter">B</span> Hernie crurale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_2')"><span class="option-letter">C</span> Hernie de Petit</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_2')"><span class="option-letter">D</span> Hernie obturatrice</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_2-correct">✅ La hernie inguinale indirecte (oblique externe) est la plus fréquente de toutes. Elle passe par l'orifice inguinal interne.</div>
+      <div class="feedback wrong" id="fb-q6_2-wrong">❌ A est correct. Inguinale indirecte = la plus fréquente.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 3/10</div>
+      <div class="q-text">La trans-illumination d'une hernie est positive (lumière passe) dans :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q6_3')"><span class="option-letter">A</span> Hernie avec contenu solide (intestin)</button>
+        <button class="option-btn" onclick="answer(this,'correct','q6_3')"><span class="option-letter">B</span> Hydrocèle (contenu liquidien pur)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_3')"><span class="option-letter">C</span> Hernie inguino-scrotale avec grêle</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_3')"><span class="option-letter">D</span> Hernie étranglée</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_3-correct">✅ Trans-illumination positive (lumière traverse) = contenu liquidien = hydrocèle. Négative = contenu solide (anse intestinale, épiploon). Permet de différencier hernie vs hydrocèle.</div>
+      <div class="feedback wrong" id="fb-q6_3-wrong">❌ B est correct. Trans-illumination +  = hydrocèle (liquide). Trans-illumination - = hernie (contenu solide).</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 4/10</div>
+      <div class="q-text">Les 3 constituants obligatoires d'une hernie sont :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q6_4')"><span class="option-letter">A</span> Sac, veine, contenu</button>
+        <button class="option-btn" onclick="answer(this,'correct','q6_4')"><span class="option-letter">B</span> Sac (péritoine), collet (anneau/orifice), contenu (viscère)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_4')"><span class="option-letter">C</span> Orifice, muscle, graisse</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_4')"><span class="option-letter">D</span> Péritoine, mésentère, anse</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_4-correct">✅ Hernie = Sac (péritoine) + Collet (orifice/anneau) + Contenu (viscère hernié). NB : le sac peut ne pas être constitué.</div>
+      <div class="feedback wrong" id="fb-q6_4-wrong">❌ B est correct. Sac (péritoine) + collet (anneau) + contenu (viscère).</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 5/10</div>
+      <div class="q-text">La hernie crurale a tendance à :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q6_5')"><span class="option-letter">A</span> Rester toujours réductible</button>
+        <button class="option-btn" onclick="answer(this,'correct','q6_5')"><span class="option-letter">B</span> S'étrangler facilement et souvent (collet étroit)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_5')"><span class="option-letter">C</span> Être unilatérale et asymptomatique longtemps</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_5')"><span class="option-letter">D</span> Remonter spontanément</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_5-correct">✅ La hernie crurale a un collet étroit → risque d'étranglement très élevé. Elle se présente souvent d'emblée étranglée. Souvent bilatérale.</div>
+      <div class="feedback wrong" id="fb-q6_5-wrong">❌ B est correct. Crurale = collet étroit = s'étrangle facilement et souvent.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 6/10</div>
+      <div class="q-text">L'hernie incarcérée se distingue de l'hernie étranglée par :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q6_6')"><span class="option-letter">A</span> L'absence de compromission vasculaire dans l'incarcération</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_6')"><span class="option-letter">B</span> L'incarcération est plus douloureuse</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_6')"><span class="option-letter">C</span> L'incarcération est réductible</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_6')"><span class="option-letter">D</span> L'étranglée est toujours bilatérale</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_6-correct">✅ Incarcérée = bloquée SANS souffrance vasculaire. Étranglée = bloquée AVEC compromission vasculaire (strangulation → nécrose).</div>
+      <div class="feedback wrong" id="fb-q6_6-wrong">❌ A est correct. Incarcérée = pas de souffrance vasculaire. Étranglée = souffrance vasculaire = urgence absolue.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 7/10</div>
+      <div class="q-text">La hernie inguinale directe passe par :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q6_7')"><span class="option-letter">A</span> L'orifice inguinal interne</button>
+        <button class="option-btn" onclick="answer(this,'correct','q6_7')"><span class="option-letter">B</span> La paroi postérieure du canal inguinal (fossette inguinale médiale)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_7')"><span class="option-letter">C</span> L'anneau crural</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_7')"><span class="option-letter">D</span> L'orifice obturateur</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_7-correct">✅ Directe = passe par la fossette inguinale médiale (paroi post du canal). Indirecte = orifice inguinal interne puis canal inguinal.</div>
+      <div class="feedback wrong" id="fb-q6_7-wrong">❌ B est correct. Directe = paroi postérieure. Indirecte = orifice interne.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 8/10</div>
+      <div class="q-text">L'impulsivité à la toux est caractéristique d'une hernie :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q6_8')"><span class="option-letter">A</span> Réductible non compliquée</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_8')"><span class="option-letter">B</span> Étranglée</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_8')"><span class="option-letter">C</span> Incarcérée</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_8')"><span class="option-letter">D</span> Irréductible</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_8-correct">✅ Hernie réductible : à la toux → augmentation pression intra-abdominale → hernie grossit momentanément (impulsive). Étranglée : perd ce caractère.</div>
+      <div class="feedback wrong" id="fb-q6_8-wrong">❌ A est correct. Impulsive à la toux = hernie non compliquée (réductible).</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 9/10</div>
+      <div class="q-text">La hernie de Petit se situe dans :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q6_9')"><span class="option-letter">A</span> Le triangle de Petit (région lombaire)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_9')"><span class="option-letter">B</span> L'anneau crural</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_9')"><span class="option-letter">C</span> Le foramen obturateur</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_9')"><span class="option-letter">D</span> Le canal inguinal</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_9-correct">✅ Triangle de Petit = zone faible de la région lombaire (entre grand dorsal, oblique externe, crête iliaque). La hernie de Petit est une hernie lombaire rare.</div>
+      <div class="feedback wrong" id="fb-q6_9-wrong">❌ A est correct. Hernie de Petit = triangle de Petit = région lombaire.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 10/10</div>
+      <div class="q-text">Devant une hernie inguino-scrotale douloureuse et irréductible depuis 6h, vous devez :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q6_10')"><span class="option-letter">A</span> Prescrire des antalgiques et revoir dans 48h</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_10')"><span class="option-letter">B</span> Demander une échographie et attendre le résultat</button>
+        <button class="option-btn" onclick="answer(this,'correct','q6_10')"><span class="option-letter">C</span> Hospitaliser en urgence, bilan préopératoire, chirurgie en urgence</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q6_10')"><span class="option-letter">D</span> Tenter une réduction forcée en consultation</button>
+      </div>
+      <div class="feedback correct" id="fb-q6_10-correct">✅ Hernie irréductible douloureuse = hernie étranglée jusqu'à preuve du contraire → urgence chirurgicale absolue. Délai &gt;6h → risque de nécrose du contenu.</div>
+      <div class="feedback wrong" id="fb-q6_10-wrong">❌ C est correct. Étranglée = urgence opératoire immédiate.</div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="submit-qcm" onclick="calcScore('qcm6',10)">📊 Voir mon score</button>
+      <button class="reset-qcm" onclick="resetQcm('qcm6',10)">🔄 Recommencer</button>
+    </div>
+    <div class="qcm-score" id="score-qcm6">
+      <div class="score-big" id="score-num-qcm6">—</div>
+      <div class="score-label">Questions correctes sur 10</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ============================================================ -->
+<!-- THÈME 7 : BRÛLURES -->
+<!-- ============================================================ -->
+<div class="section-wrap" id="t7">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fff7ed;">🔥</div>
+    <div>
+      <div class="section-num">Thème 7</div>
+      <div class="section-title">Sémiologie des Brûlures</div>
+    </div>
+  </div>
+
+  <div class="alert alert-orange">
+    <strong>⚠️ DÉFINITION</strong>
+    Trauma cutané causé par la chaleur, agents chimiques, biologiques ou physiques → atteinte des couches cutanées.
+  </div>
+
+  <!-- Anatomie peau -->
+  <div class="card">
+    <div class="card-title">🔬 Rappel anatomie de la peau</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Couche</th><th>Sous-couches</th><th>Rôle</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Épiderme</strong></td><td>Jonction dermo-épidermique</td><td>Protection, synthèse cutanée, kératine</td></tr>
+          <tr><td><strong>Derme</strong></td><td>Papillaire + réticulé</td><td>Soutien, vaisseaux, nerfs, glandes</td></tr>
+          <tr><td><strong>Hypoderme</strong></td><td>Tissu adipeux</td><td>Isolation, protection mécanique</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Agents -->
+  <div class="card">
+    <div class="card-title">⚡ Agents causaux</div>
+    <div class="grid-3">
+      <div>
+        <p style="font-weight:700;color:var(--red);font-size:13px;margin-bottom:8px;">🔥 PHYSIQUES</p>
+        <ul class="fact-list" style="font-size:13px;">
+          <li>Thermiques : chaleur naturelle / industrielle</li>
+          <li>Électriques : bas voltage / haut voltage</li>
+          <li>Irradiants : soleil, rayons X, UV, rayons atomiques</li>
+          <li>Gelures (froid)</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;color:var(--orange);font-size:13px;margin-bottom:8px;">⚗️ CHIMIQUES</p>
+        <ul class="fact-list" style="font-size:13px;">
+          <li>Acides → déshydratation extrême + hydrolyse</li>
+          <li>Bases → saponification + formation savon + alcalin</li>
+          <li>Médicaments</li>
+          <li>Agents spéciaux</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;color:var(--green);font-size:13px;margin-bottom:8px;">🐛 BIOLOGIQUES</p>
+        <ul class="fact-list" style="font-size:13px;">
+          <li>Poisons végétaux / chenilles urticantes</li>
+          <li>Substances irritantes</li>
+          <li>Mollusques</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Classification selon profondeur -->
+  <div class="card">
+    <div class="card-title">📊 Classification selon la profondeur ★★★</div>
+    <div class="degree-grid">
+      <div class="degree-card" style="border-color:#fca5a5;background:#fff5f5;">
+        <div class="degree-num" style="color:#dc2626;">1°</div>
+        <div class="degree-name" style="color:#dc2626;">Épiderme seulement</div>
+        <p>• Érythème (rougeur)<br>• Douleur très vive<br>• Peau rouge hyperémique<br>• <strong>Pas de phlyctène</strong><br>• Guérison sans cicatrice<br>• Traiter : vaseline</p>
+      </div>
+      <div class="degree-card" style="border-color:#fb923c;background:#fff7ed;">
+        <div class="degree-num" style="color:#d97706;">2° Sup</div>
+        <div class="degree-name" style="color:#d97706;">Épiderme + derme superficiel</div>
+        <p>• Érythème + <strong>phlyctènes (cloques)</strong><br>• Douloureuse<br>• Cicatrisation avec kératine neuve<br>• Peut laisser dépigmentation</p>
+      </div>
+      <div class="degree-card" style="border-color:#f87171;background:#fee2e2;">
+        <div class="degree-num" style="color:#b91c1c;">2° Prof</div>
+        <div class="degree-name" style="color:#b91c1c;">Épiderme + derme profond</div>
+        <p>• Phlyctènes + peau épaisse trouble<br>• Couleur <strong>cerise</strong><br>• Cicatrisation difficile → <strong>chéloïde</strong><br>• Douloureuse</p>
+      </div>
+      <div class="degree-card" style="border-color:#7f1d1d;background:#fef2f2;">
+        <div class="degree-num" style="color:#7f1d1d;">3°</div>
+        <div class="degree-name" style="color:#7f1d1d;">Hypoderme / Muscle / Os</div>
+        <p>• <strong>PAS DE DOULEUR</strong> (nerfs détruits)<br>• Escarre (croûte noire/brune)<br>• Douleur en zone entourant la brûlure<br>• Cicatrisation impossible sans greffe</p>
+      </div>
+    </div>
+    <div class="key-fact">Brûlure 3ème degré = INDOLORE car les terminaisons nerveuses sont détruites. C'est un signe de gravité !</div>
+  </div>
+
+  <!-- Brûlure électrique -->
+  <div class="card">
+    <div class="card-title">⚡ Brûlure électrique — spécificités</div>
+    <div class="card-2col">
+      <div>
+        <p style="font-weight:700;font-size:13px;color:var(--blue);margin-bottom:8px;">Bas voltage</p>
+        <ul class="fact-list" style="font-size:13px;">
+          <li>Point d'entrée + point de sortie</li>
+          <li>Zone déprimée (hypopuissance)</li>
+          <li>Lésion sur le trajet</li>
+          <li>Manifestations cardiaques modérées</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;font-size:13px;color:var(--red);margin-bottom:8px;">Haut voltage</p>
+        <ul class="fact-list" style="font-size:13px;">
+          <li>Manifestations musculaires sévères</li>
+          <li>Manifestations cardiaques (arythmie, arrêt)</li>
+          <li>Manifestations nerveuses</li>
+          <li>Brûlures profondes sur tout le trajet</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📐 Ce qui compte en sémiologie des brûlures</div>
+    <div class="flex-wrap-gap">
+      <span class="badge badge-red">1. L'ÉTENDUE (surface corporelle brûlée)</span>
+      <span class="badge badge-orange">2. LA PROFONDEUR (degré)</span>
+      <span class="badge badge-blue">3. Localisation (face, mains, périnée = grave)</span>
+      <span class="badge badge-purple">4. L'agent causal</span>
+    </div>
+    <div class="alert alert-red" style="margin-top:10px;">
+      <strong>Règle des 9 de Wallace (étendue):</strong> Tête=9%, chaque bras=9%, thorax ant=9%, thorax post=9%, chaque cuisse=9%, chaque jambe=9%, périnée=1%
+    </div>
+  </div>
+
+  <!-- Images brûlures -->
+  <div class="img-grid">
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Burn_blister.jpg/320px-Burn_blister.jpg" alt="Phlyctène brûlure 2e degré" onerror="this.src='https://images.unsplash.com/photo-1517842645767-c639042777db?w=320&q=80'">
+      <div class="img-caption">Phlyctènes — brûlure du 2ème degré superficiel</div>
+    </div>
+    <div class="img-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Burn_degree_diagram.jpg/320px-Burn_degree_diagram.jpg" alt="Degrés de brûlures" onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=320&q=80'">
+      <div class="img-caption">Schéma comparatif des 4 degrés de brûlures selon la profondeur</div>
+    </div>
+  </div>
+
+  <!-- QCM Brûlures -->
+  <div class="qcm-section" id="qcm7">
+    <div class="qcm-header">
+      <div style="font-size:28px;">📝</div>
+      <div><div class="qcm-title">QCM — Brûlures (10 questions)</div></div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 1/10</div>
+      <div class="q-text">Une brûlure du 3ème degré est caractérisée par :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q7_1')"><span class="option-letter">A</span> Érythème douloureux sans phlyctène</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_1')"><span class="option-letter">B</span> Phlyctènes et douleur intense</button>
+        <button class="option-btn" onclick="answer(this,'correct','q7_1')"><span class="option-letter">C</span> Absence de douleur + escarre (nerfs détruits)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_1')"><span class="option-letter">D</span> Douleur maximale et peau cerise</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_1-correct">✅ 3ème degré = atteinte jusqu'à l'hypoderme/muscle/os → nerfs détruits → INDOLORE + escarre. Paradoxal mais crucial à connaître.</div>
+      <div class="feedback wrong" id="fb-q7_1-wrong">❌ C est correct. 3ème degré = indolore (nerfs brûlés) + escarre. C'est grave car le patient ne ressent plus rien.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 2/10</div>
+      <div class="q-text">Les phlyctènes (cloques) apparaissent dans :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q7_2')"><span class="option-letter">A</span> Brûlure du 1er degré</button>
+        <button class="option-btn" onclick="answer(this,'correct','q7_2')"><span class="option-letter">B</span> Brûlure du 2ème degré (superficiel et profond)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_2')"><span class="option-letter">C</span> Brûlure du 3ème degré uniquement</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_2')"><span class="option-letter">D</span> Gelures seulement</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_2-correct">✅ Les phlyctènes = cloques remplies de liquide = signe du 2ème degré. 1er degré = érythème seul. 3ème degré = escarre.</div>
+      <div class="feedback wrong" id="fb-q7_2-wrong">❌ B est correct. Phlyctène = 2ème degré. Érythème seul = 1er degré. Escarre = 3ème degré.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 3/10</div>
+      <div class="q-text">Les acides causent des brûlures par le mécanisme de :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','q7_3')"><span class="option-letter">A</span> Déshydratation extrême tissulaire et hydrolyse</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_3')"><span class="option-letter">B</span> Saponification et alcalinisation</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_3')"><span class="option-letter">C</span> Coagulation des protéines uniquement</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_3')"><span class="option-letter">D</span> Oxydation des lipides</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_3-correct">✅ Acides → déshydratation extrême + hydrolyse. Bases (soude, chaux) → saponification + formation de savon = brûlures alcalines.</div>
+      <div class="feedback wrong" id="fb-q7_3-wrong">❌ A est correct. Acides = déshydratation + hydrolyse. Bases = saponification.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 4/10</div>
+      <div class="q-text">La brûlure du 2ème degré profond laisse comme séquelle :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q7_4')"><span class="option-letter">A</span> Aucune séquelle</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_4')"><span class="option-letter">B</span> Une simple dépigmentation</button>
+        <button class="option-btn" onclick="answer(this,'correct','q7_4')"><span class="option-letter">C</span> Chéloïde (cicatrisation difficile en relief)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_4')"><span class="option-letter">D</span> Nécrose systématique</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_4-correct">✅ 2ème degré profond → atteinte derme profond → cicatrisation difficile → chéloïde (cicatrice en relief hypertrophique). 2ème sup → simple dépigmentation.</div>
+      <div class="feedback wrong" id="fb-q7_4-wrong">❌ C est correct. 2ème profond → chéloïde. 2ème superficiel → dépigmentation.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 5/10</div>
+      <div class="q-text">Dans la brûlure électrique haute tension, les manifestations retrouvées sont :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q7_5')"><span class="option-letter">A</span> Uniquement cutanées superficielles</button>
+        <button class="option-btn" onclick="answer(this,'correct','q7_5')"><span class="option-letter">B</span> Musculaires, cardiaques ET nerveuses</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_5')"><span class="option-letter">C</span> Seulement au point d'entrée</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_5')"><span class="option-letter">D</span> Uniquement respiratoires</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_5-correct">✅ Haut voltage → brûlures profondes sur tout le trajet + manifestations musculaires (rhabdomyolyse) + cardiaques (arythmie) + nerveuses.</div>
+      <div class="feedback wrong" id="fb-q7_5-wrong">❌ B est correct. Haut voltage = triade : musculaire + cardiaque + nerveux.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 6/10</div>
+      <div class="q-text">Les 2 paramètres essentiels en sémiologie des brûlures sont :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q7_6')"><span class="option-letter">A</span> La couleur et la température</button>
+        <button class="option-btn" onclick="answer(this,'correct','q7_6')"><span class="option-letter">B</span> L'étendue (surface %) et la profondeur (degré)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_6')"><span class="option-letter">C</span> L'agent causal et l'âge</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_6')"><span class="option-letter">D</span> La douleur et la fièvre</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_6-correct">✅ En sémiologie des brûlures : 1) Étendue = surface corporelle touchée (règle des 9) et 2) Profondeur = degré. Ces 2 données guident la prise en charge.</div>
+      <div class="feedback wrong" id="fb-q7_6-wrong">❌ B est correct. Étendue (%) + profondeur (degré) = les 2 éléments clefs.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 7/10</div>
+      <div class="q-text">Quelle est la couleur caractéristique d'une brûlure du 2ème degré profond ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q7_7')"><span class="option-letter">A</span> Rouge vif</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_7')"><span class="option-letter">B</span> Blanc nacré</button>
+        <button class="option-btn" onclick="answer(this,'correct','q7_7')"><span class="option-letter">C</span> Cerise (rouge-violet foncé)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_7')"><span class="option-letter">D</span> Noire (escarre)</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_7-correct">✅ 2ème degré profond → couleur cerise (rouge foncé) + peau épaisse et trouble. 1er degré = rouge vif. 3ème = escarre (noire/brune).</div>
+      <div class="feedback wrong" id="fb-q7_7-wrong">❌ C est correct. 2ème profond = cerise. 1er = rouge vif. 3ème = escarre noire.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 8/10</div>
+      <div class="q-text">Une brûlure du 1er degré nécessite comme traitement local :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q7_8')"><span class="option-letter">A</span> Greffe de peau urgente</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_8')"><span class="option-letter">B</span> Excision-greffe</button>
+        <button class="option-btn" onclick="answer(this,'correct','q7_8')"><span class="option-letter">C</span> Application de vaseline pour lubrifier (pas de séquelle)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_8')"><span class="option-letter">D</span> Antibiotiques IV systématiques</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_8-correct">✅ 1er degré = épiderme seulement → pas de séquelle → traitement local simple : vaseline, hydratation. Guérison spontanée en quelques jours.</div>
+      <div class="feedback wrong" id="fb-q7_8-wrong">❌ C est correct. 1er degré = vaseline + guérison spontanée. Pas de greffe nécessaire.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 9/10</div>
+      <div class="q-text">Les bases (soude, chaux vive) causent des brûlures par :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q7_9')"><span class="option-letter">A</span> Déshydratation et hydrolyse</button>
+        <button class="option-btn" onclick="answer(this,'correct','q7_9')"><span class="option-letter">B</span> Saponification et formation de savon (brûlure pénétrante)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_9')"><span class="option-letter">C</span> Oxydation des tissus</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_9')"><span class="option-letter">D</span> Précipitation des protéines</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_9-correct">✅ Bases → saponification (transformation des graisses en savon) → brûlures pénétrantes plus profondes que les acides. Plus dangereuses car pénètrent davantage.</div>
+      <div class="feedback wrong" id="fb-q7_9-wrong">❌ B est correct. Bases = saponification. Acides = déshydratation/hydrolyse.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question 10/10</div>
+      <div class="q-text">La règle des 9 de Wallace évalue :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','q7_10')"><span class="option-letter">A</span> La profondeur de la brûlure</button>
+        <button class="option-btn" onclick="answer(this,'correct','q7_10')"><span class="option-letter">B</span> L'étendue de la surface corporelle brûlée (%)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_10')"><span class="option-letter">C</span> L'âge du patient</button>
+        <button class="option-btn" onclick="answer(this,'wrong','q7_10')"><span class="option-letter">D</span> Le pronostic vital à 24h</button>
+      </div>
+      <div class="feedback correct" id="fb-q7_10-correct">✅ Règle des 9 = calcul de la Surface Corporelle Brûlée (SCB) : Tête 9%, chaque bras 9%, thorax ant 9%, thorax post 9%, chaque cuisse 9%, chaque jambe 9%, périnée 1%.</div>
+      <div class="feedback wrong" id="fb-q7_10-wrong">❌ B est correct. Règle des 9 = évaluation de l'étendue (surface corporelle %).</div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="submit-qcm" onclick="calcScore('qcm7',10)">📊 Voir mon score</button>
+      <button class="reset-qcm" onclick="resetQcm('qcm7',10)">🔄 Recommencer</button>
+    </div>
+    <div class="qcm-score" id="score-qcm7">
+      <div class="score-big" id="score-num-qcm7">—</div>
+      <div class="score-label">Questions correctes sur 10</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ÉVALUATION GÉNÉRALE -->
+<!-- ============================================================ -->
+<div class="eval-section" id="eval">
+  <div class="eval-title">📝 Évaluation Générale</div>
+  <div class="eval-subtitle">15 QCM + 7 Cas cliniques sur l'ensemble des 7 thèmes</div>
+
+  <!-- 15 QCM Généraux -->
+  <div style="margin-bottom:32px;" id="eval_qcm">
+    <h3 style="color:#93c5fd;font-family:'Playfair Display',serif;font-size:20px;margin-bottom:16px;">Partie 1 — 15 QCM Transversaux</h3>
+
+    <div class="question-card">
+      <div class="q-num">Question G1</div>
+      <div class="q-text">Un enfant de 8 mois présente : pleurs paroxystiques, vomissements bilieux, selles en gelée de groseille, masse en FID. Quel est le diagnostic le plus probable ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg1')"><span class="option-letter">A</span> Volvulus du grêle</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg1')"><span class="option-letter">B</span> Invagination intestinale iléo-colique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg1')"><span class="option-letter">C</span> Gastro-entérite aiguë</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg1')"><span class="option-letter">D</span> Hernie inguinale étranglée</button>
+      </div>
+      <div class="feedback correct" id="fb-qg1-correct">✅ Tableau classique de l'invagination : nourrisson, pleurs paroxystiques, selles en gelée de groseille (pathognomonique) + masse FID.</div>
+      <div class="feedback wrong" id="fb-qg1-wrong">❌ B. Selles en gelée de groseille + nourrisson + masse FID = invagination intestinale jusqu'à preuve du contraire.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G2</div>
+      <div class="q-text">Un homme de 65 ans avec antécédent de chirurgie abdominale présente une occlusion mécanique. Sur l'ASP : NHA organisés en pile de monnaie, absence de gaz dans le rectum. Quel est le mécanisme le plus probable ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','qg2')"><span class="option-letter">A</span> Occlusion sur brides</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg2')"><span class="option-letter">B</span> Iléus paralytique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg2')"><span class="option-letter">C</span> Invagination intestinale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg2')"><span class="option-letter">D</span> Volvulus du sigmoïde</button>
+      </div>
+      <div class="feedback correct" id="fb-qg2-correct">✅ Antécédent chirurgical + ASP mécanique = brides post-op = 1ère cause d'occlusion mondiale. NHA organisés = mécanique. Absence gaz rectum = mécanique.</div>
+      <div class="feedback wrong" id="fb-qg2-wrong">❌ A. ATCD chirurgical + occlusion mécanique = brides en 1er.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G3</div>
+      <div class="q-text">Une brûlure qui présente des phlyctènes mais reste douloureuse correspond à quel degré ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg3')"><span class="option-letter">A</span> 1er degré</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg3')"><span class="option-letter">B</span> 2ème degré superficiel</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg3')"><span class="option-letter">C</span> 3ème degré</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg3')"><span class="option-letter">D</span> 4ème degré</button>
+      </div>
+      <div class="feedback correct" id="fb-qg3-correct">✅ 2ème degré sup = phlyctènes + douloureuse (nerfs intacts). 3ème = indolore (nerfs détruits).</div>
+      <div class="feedback wrong" id="fb-qg3-wrong">❌ B. Phlyctènes + douloureuse = 2ème degré. Indolore = 3ème degré.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G4</div>
+      <div class="q-text">Quelle est la différence entre une hernie incarcérée et une hernie étranglée ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg4')"><span class="option-letter">A</span> L'incarcérée est plus douloureuse</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg4')"><span class="option-letter">B</span> L'étranglée a une compromission vasculaire, l'incarcérée non</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg4')"><span class="option-letter">C</span> L'incarcérée est bilatérale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg4')"><span class="option-letter">D</span> Elles sont identiques cliniquement</button>
+      </div>
+      <div class="feedback correct" id="fb-qg4-correct">✅ Incarcérée = irréductible SANS souffrance vasculaire. Étranglée = irréductible AVEC souffrance vasculaire = urgence vitale.</div>
+      <div class="feedback wrong" id="fb-qg4-wrong">❌ B. Étranglée = souffrance vasculaire = urgence absolue. Incarcérée = pas de souffrance vasculaire encore.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G5</div>
+      <div class="q-text">Dans une occlusion fonctionnelle, l'ASP montre :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg5')"><span class="option-letter">A</span> NHA organisés et localisés + absence gaz rectum</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg5')"><span class="option-letter">B</span> NHA disséminés partout + gaz présent dans le rectum</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg5')"><span class="option-letter">C</span> ASP normal</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg5')"><span class="option-letter">D</span> Croissant gazeux sous-diaphragmatique</button>
+      </div>
+      <div class="feedback correct" id="fb-qg5-correct">✅ Fonctionnelle = pas d'obstacle = l'air se répartit partout (NHA disséminés désorganisés) + gaz présent dans tout le tube digestif y compris rectum.</div>
+      <div class="feedback wrong" id="fb-qg5-wrong">❌ B. Fonctionnelle = NHA partout désorganisés + gaz dans rectum présent.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G6</div>
+      <div class="q-text">Quelle affirmation est VRAIE concernant le syndrome tumoral rétropéritonéal ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg6')"><span class="option-letter">A</span> La masse suit les mouvements respiratoires</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg6')"><span class="option-letter">B</span> La masse est fixe + contact lombaire positif</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg6')"><span class="option-letter">C</span> La masse disparaît à la toux</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg6')"><span class="option-letter">D</span> Manœuvre de Smith-Bates positive</button>
+      </div>
+      <div class="feedback correct" id="fb-qg6-correct">✅ Rétropéritonéal = masse fixe (ne suit pas la respiration) + contact lombaire positif. Intra-péri. = suit la respiration.</div>
+      <div class="feedback wrong" id="fb-qg6-wrong">❌ B. Rétropéritonéal = fixe + contact lombaire +.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G7</div>
+      <div class="q-text">Un vieillard présente une distension abdominale asymétrique brutale avec bruits de lutte. Quel diagnostic évoquer en 1er ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg7')"><span class="option-letter">A</span> Invagination intestinale</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg7')"><span class="option-letter">B</span> Volvulus du sigmoïde</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg7')"><span class="option-letter">C</span> Gastro-entérite</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg7')"><span class="option-letter">D</span> Appendicite</button>
+      </div>
+      <div class="feedback correct" id="fb-qg7-correct">✅ Vieillard + homme + distension asymétrique = volvulus du sigmoïde en 1er. L'asymétrie est caractéristique.</div>
+      <div class="feedback wrong" id="fb-qg7-wrong">❌ B. Vieillard + distension asymétrique = volvulus du sigmoïde.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G8</div>
+      <div class="q-text">L'examen physique dans le syndrome occlusif donne quel pourcentage du diagnostic ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg8')"><span class="option-letter">A</span> 50%</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg8')"><span class="option-letter">B</span> 75%</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg8')"><span class="option-letter">C</span> 95%</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg8')"><span class="option-letter">D</span> 30%</button>
+      </div>
+      <div class="feedback correct" id="fb-qg8-correct">✅ Le prof a insisté : l'examen physique donne 95% du diagnostic dans le syndrome occlusif. L'imagerie complète mais ne remplace pas l'examen clinique.</div>
+      <div class="feedback wrong" id="fb-qg8-wrong">❌ C. L'examen physique = 95% du diagnostic dans le syndrome occlusif.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G9</div>
+      <div class="q-text">La valvule de Bauhin se situe :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg9')"><span class="option-letter">A</span> Entre le duodénum et le jéjunum</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg9')"><span class="option-letter">B</span> Entre l'iléon terminal et le caecum (valvule iléo-caecale)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg9')"><span class="option-letter">C</span> Entre le sigmoïde et le rectum</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg9')"><span class="option-letter">D</span> Entre le jéjunum et l'iléon</button>
+      </div>
+      <div class="feedback correct" id="fb-qg9-correct">✅ Valvule de Bauhin = valvule iléo-caecale = entre iléon et caecum. Empêche le reflux du côlon vers le grêle. Passage unidirectionnel.</div>
+      <div class="feedback wrong" id="fb-qg9-wrong">❌ B. Valvule de Bauhin = iléo-caecale (iléon → caecum). Anti-reflux.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G10</div>
+      <div class="q-text">La strangulation intestinale est caractérisée par une atteinte vasculaire précoce. Quel signe auscultatoire retrouve-t-on tardivement ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg10')"><span class="option-letter">A</span> Bruits de lutte très intenses</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg10')"><span class="option-letter">B</span> Silence auscultatoire (anses nécrosées)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg10')"><span class="option-letter">C</span> Bruits normaux</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg10')"><span class="option-letter">D</span> Souffle systolique</button>
+      </div>
+      <div class="feedback correct" id="fb-qg10-correct">✅ Strangulation → nécrose des anses → plus de péristaltisme → silence auscultatoire. C'est un signe de gravité extrême.</div>
+      <div class="feedback wrong" id="fb-qg10-wrong">❌ B. Nécrose = silence auscultatoire. C'est grave.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G11</div>
+      <div class="q-text">Quel est le traitement de l'invagination intestinale non compliquée chez le nourrisson ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg11')"><span class="option-letter">A</span> Chirurgie d'emblée</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg11')"><span class="option-letter">B</span> Lavement diagnostique et thérapeutique (hydrosoluble)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg11')"><span class="option-letter">C</span> Antibiotiques IV</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg11')"><span class="option-letter">D</span> Repos et renutrition</button>
+      </div>
+      <div class="feedback correct" id="fb-qg11-correct">✅ Non compliquée = lavement hydraulique (hydrosoluble) qui fait la réduction. Chirurgie si échec ou complications.</div>
+      <div class="feedback wrong" id="fb-qg11-wrong">❌ B. Lavement hydrosoluble = diagnostic ET traitement de l'invagination non compliquée.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G12</div>
+      <div class="q-text">Un patient avec occlusion haute perd principalement quel élément dans ses vomissements ?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'correct','qg12')"><span class="option-letter">A</span> HCl (acide chlorhydrique) → alcalose métabolique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg12')"><span class="option-letter">B</span> Bicarbonates → acidose métabolique</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg12')"><span class="option-letter">C</span> Calcium → hypocalcémie</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg12')"><span class="option-letter">D</span> Sodium → hyponatrémie pure</button>
+      </div>
+      <div class="feedback correct" id="fb-qg12-correct">✅ Occlusion haute → vomissements de liquide gastrique (HCl) → perte d'acide → alcalose métabolique hypochlorémique.</div>
+      <div class="feedback wrong" id="fb-qg12-wrong">❌ A. Haute = perte HCl = alcalose. Basse = perte bicarbonates = acidose.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G13</div>
+      <div class="q-text">L'image en "bec d'oiseau" au lavement baryté est spécifique de :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg13')"><span class="option-letter">A</span> Invagination intestinale</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg13')"><span class="option-letter">B</span> Volvulus du sigmoïde</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg13')"><span class="option-letter">C</span> Hernie étranglée</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg13')"><span class="option-letter">D</span> Gastro-entérite</button>
+      </div>
+      <div class="feedback correct" id="fb-qg13-correct">✅ Bec d'oiseau = volvulus (le produit s'arrête au point de torsion en bec). Invagination = image en boudin/cupule/cocarde.</div>
+      <div class="feedback wrong" id="fb-qg13-wrong">❌ B. Bec d'oiseau = volvulus. Boudin/cocarde = invagination.</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G14</div>
+      <div class="q-text">Le contact lombaire positif est recherché pour détecter une masse :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg14')"><span class="option-letter">A</span> Pariétale antérieure</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg14')"><span class="option-letter">B</span> Rétropéritonéale (rénale)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg14')"><span class="option-letter">C</span> Intra-péritonéale</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg14')"><span class="option-letter">D</span> Pelvienne</button>
+      </div>
+      <div class="feedback correct" id="fb-qg14-correct">✅ Contact lombaire = main antérieure sur l'abdomen + main postérieure sur les lombes → sensation de masse qui "bascule" = masse rétropéritonéale (rein ++).</div>
+      <div class="feedback wrong" id="fb-qg14-wrong">❌ B. Contact lombaire = masse rétropéritonéale (rénale).</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-num">Question G15</div>
+      <div class="q-text">L'angle de Treitz correspond anatomiquement à :</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,'wrong','qg15')"><span class="option-letter">A</span> La valvule de Bauhin</button>
+        <button class="option-btn" onclick="answer(this,'correct','qg15')"><span class="option-letter">B</span> L'angle duodéno-jéjunal (limite occlusion haute/basse)</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg15')"><span class="option-letter">C</span> La jonction recto-sigmoïdienne</button>
+        <button class="option-btn" onclick="answer(this,'wrong','qg15')"><span class="option-letter">D</span> Le sphincter iléo-caecal</button>
+      </div>
+      <div class="feedback correct" id="fb-qg15-correct">✅ Angle de Treitz = angle duodéno-jéjunal = limite entre occlusion haute (en amont) et basse (en aval). Repère anatomique fondamental.</div>
+      <div class="feedback wrong" id="fb-qg15-wrong">❌ B. Angle de Treitz = angle duodéno-jéjunal = référence anatomique pour classer les occlusions.</div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="submit-qcm" onclick="calcScore('eval_qcm',15)" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">📊 Voir mon score</button>
+      <button class="reset-qcm" onclick="resetQcm('eval_qcm',15)">🔄 Recommencer</button>
+    </div>
+    <div class="qcm-score" id="score-eval_qcm">
+      <div class="score-big" id="score-num-eval_qcm">—</div>
+      <div class="score-label" style="color:#cbd5e1;">Questions correctes sur 15</div>
+    </div>
+  </div>
+
+  <!-- CAS CLINIQUES -->
+  <h3 style="color:#93c5fd;font-family:'Playfair Display',serif;font-size:20px;margin-bottom:16px;margin-top:8px;">Partie 2 — 7 Cas Cliniques Haute Probabilité</h3>
+
+  <!-- CAS 1 -->
+  <div class="cas-card">
+    <div class="cas-header">
+      <span class="cas-num">Cas 1</span>
+      <span class="cas-title">Occlusion intestinale mécanique post-opératoire</span>
+    </div>
+    <div class="cas-text">Maria, 30 ans, G2P2A0, antécédent de laparotomie pour péritonite appendiculaire à 25 ans. Arrive aux urgences avec douleurs abdominales intenses de type colique, vomissements répétés, abdomen distendu. Pas de selles depuis 2 jours. À l'examen : patiente anxieuse, conjonctives un peu sèches, abdomen distendu avec ancienne cicatrice médiane, BHA accélérés. Signes vitaux normaux.</div>
+    <div class="cas-questions">
+      <div class="cas-q"><strong>Q1.</strong> Quel est votre diagnostic ? <button class="toggle-btn" onclick="toggleAnswer('cas1q1')">Voir réponse</button>
+        <div class="cas-answer" id="cas1q1"><strong>→ Occlusion intestinale sur brides</strong> (les brides post-op de la péritonite appendiculaire sont la cause). ATCD de laparotomie + cicatrice + occlusion mécanique = brides en 1er.</div>
+      </div>
+      <div class="cas-q"><strong>Q2.</strong> Examen paraclinique de confirmation ? <button class="toggle-btn" onclick="toggleAnswer('cas1q2')">Voir réponse</button>
+        <div class="cas-answer" id="cas1q2"><strong>→ ASP debout de face</strong> → NHA organisés + absence gaz rectum = occlusion mécanique confirmée.</div>
+      </div>
+      <div class="cas-q"><strong>Q3.</strong> Quelle anomalie retrouve-t-on sur l'ASP ? <button class="toggle-btn" onclick="toggleAnswer('cas1q3')">Voir réponse</button>
+        <div class="cas-answer" id="cas1q3"><strong>→ Niveaux hydro-aériques (NHA)</strong> organisés, localisés. Les anses contiennent air + eau → NHA formés par l'interface air-liquide.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAS 2 -->
+  <div class="cas-card">
+    <div class="cas-header">
+      <span class="cas-num">Cas 2</span>
+      <span class="cas-title">Invagination intestinale aiguë du nourrisson</span>
+    </div>
+    <div class="cas-text">Nourrisson de 4 mois, admis initialement pour syndrome grippal. La nuit, devient très irrité, pleure sans cesse, refuse le sein. Vomissements multiples. Abdomen légèrement distendu, selles sanguinolentes. Masse palpée au flanc droit.</div>
+    <div class="cas-questions">
+      <div class="cas-q"><strong>Q1.</strong> Quel diagnostic ? <button class="toggle-btn" onclick="toggleAnswer('cas2q1')">Voir réponse</button>
+        <div class="cas-answer" id="cas2q1"><strong>→ Invagination intestinale iléo-colique.</strong> Pleurs paroxystiques + selles sanguinolentes (gelée de groseille) + masse flanc droit = tableau classique.</div>
+      </div>
+      <div class="cas-q"><strong>Q2.</strong> Meilleur examen de confirmation ? <button class="toggle-btn" onclick="toggleAnswer('cas2q2')">Voir réponse</button>
+        <div class="cas-answer" id="cas2q2"><strong>→ Échographie abdominale</strong> → image en boudin (sandwitch) + déshabituation de la FID. Si pas disponible : ASP (déshabituation FID, NHA possibles).</div>
+      </div>
+      <div class="cas-q"><strong>Q3.</strong> Quel signe radiologique sur l'ASP ? <button class="toggle-btn" onclick="toggleAnswer('cas2q3')">Voir réponse</button>
+        <div class="cas-answer" id="cas2q3"><strong>→ Déshabituation de la fosse iliaque droite</strong> (caecum déplacé → plus de gaz en FID) + distension des anses. Si lavement : image en cupule ou bec d'oiseau.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAS 3 -->
+  <div class="cas-card">
+    <div class="cas-header">
+      <span class="cas-num">Cas 3</span>
+      <span class="cas-title">Ulcère perforé (syndrome péritonéal)</span>
+    </div>
+    <div class="cas-text">Patient de 32 ans, douleurs abdominales intenses en coup de poignard à l'épigastre hier soir. Antécédents de pyrosis et douleurs épigastriques soulagées par les aliments. À l'examen : très anxieux, tachycarde, TA 90/65 mmHg. Abdomen très douloureux à tous les quadrants, défense, rebond positif. Matité pré-hépatique diminuée.</div>
+    <div class="cas-questions">
+      <div class="cas-q"><strong>Q1.</strong> Quel est votre diagnostic ? <button class="toggle-btn" onclick="toggleAnswer('cas3q1')">Voir réponse</button>
+        <div class="cas-answer" id="cas3q1"><strong>→ Ulcus perforé</strong> (ulcère gastro-duodénal perforé). ATCD de pyrosis + douleur brutale épigastrique + choc + défense généralisée + matité pré-hépatique diminuée (air libre).</div>
+      </div>
+      <div class="cas-q"><strong>Q2.</strong> Examen simple et rapide de confirmation ? <button class="toggle-btn" onclick="toggleAnswer('cas3q2')">Voir réponse</button>
+        <div class="cas-answer" id="cas3q2"><strong>→ Radiographie thorax debout</strong> → croissant gazeux sous-diaphragmatique = signe de perforation avec pneumopéritoine. NB : pas d'ASP ici, c'est la radio thorax qui confirme le pneumopéritoine.</div>
+      </div>
+      <div class="cas-q"><strong>Q3.</strong> Signe paraclinique à chercher ? <button class="toggle-btn" onclick="toggleAnswer('cas3q3')">Voir réponse</button>
+        <div class="cas-answer" id="cas3q3"><strong>→ Croissant gazeux sous-diaphragmatique</strong> (pneumopéritoine = air libre dans la cavité péritonéale après perforation).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAS 4 -->
+  <div class="cas-card">
+    <div class="cas-header">
+      <span class="cas-num">Cas 4</span>
+      <span class="cas-title">Hernie inguino-scrotale étranglée</span>
+    </div>
+    <div class="cas-text">Jean, 50 ans, consulte pour tuméfaction douloureuse au niveau de l'aine droite depuis 8h, irradiant vers le scrotum. Vomissements, pas de selle depuis la veille. À l'examen : masse inguino-scrotale droite tendue, irréductible, douloureuse, non impulsive à la toux, peau rouge en regard.</div>
+    <div class="cas-questions">
+      <div class="cas-q"><strong>Q1.</strong> Quel diagnostic ? <button class="toggle-btn" onclick="toggleAnswer('cas4q1')">Voir réponse</button>
+        <div class="cas-answer" id="cas4q1"><strong>→ Hernie inguino-scrotale droite étranglée.</strong> Masse irréductible + douloureuse + non impulsive + tableau occlusif = strangulation herniaire.</div>
+      </div>
+      <div class="cas-q"><strong>Q2.</strong> Conduite à tenir ? <button class="toggle-btn" onclick="toggleAnswer('cas4q2')">Voir réponse</button>
+        <div class="cas-answer" id="cas4q2"><strong>→ Hospitalisation urgente + bilan préopératoire + chirurgie en urgence.</strong> Délai &gt;6h → risque de nécrose du contenu hernié (grêle). Ne pas tenter de réduction forcée.</div>
+      </div>
+      <div class="cas-q"><strong>Q3.</strong> Quel risque si pas opérée dans les 6h ? <button class="toggle-btn" onclick="toggleAnswer('cas4q3')">Voir réponse</button>
+        <div class="cas-answer" id="cas4q3"><strong>→ Nécrose de l'anse intestinale hernié</strong> par ischémie → perforation → péritonite localisée puis généralisée. Risque vital.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAS 5 -->
+  <div class="cas-card">
+    <div class="cas-header">
+      <span class="cas-num">Cas 5</span>
+      <span class="cas-title">Volvulus du sigmoïde</span>
+    </div>
+    <div class="cas-text">Mr Beaumont, 72 ans, consulte pour distension abdominale importante, douleurs abdominales, et arrêt des matières. Constipation chronique ancienne. À l'examen : abdomen très distendu de façon asymétrique (gauche &gt; droite), tympanisme +++, BHA de lutte.</div>
+    <div class="cas-questions">
+      <div class="cas-q"><strong>Q1.</strong> Quel diagnostic ? <button class="toggle-btn" onclick="toggleAnswer('cas5q1')">Voir réponse</button>
+        <div class="cas-answer" id="cas5q1"><strong>→ Volvulus du sigmoïde.</strong> Vieillard + constipation + distension asymétrique + hypertympanisme = volvulus du sigmoïde jusqu'à preuve du contraire.</div>
+      </div>
+      <div class="cas-q"><strong>Q2.</strong> Quel signe sur le lavement baryté ? <button class="toggle-btn" onclick="toggleAnswer('cas5q2')">Voir réponse</button>
+        <div class="cas-answer" id="cas5q2"><strong>→ Image en bec d'oiseau</strong> (produit de contraste s'arrête au point de torsion en forme de bec). Permet aussi une tentative de réduction.</div>
+      </div>
+      <div class="cas-q"><strong>Q3.</strong> Quels signes indiquent que l'anse est nécrosée ? <button class="toggle-btn" onclick="toggleAnswer('cas5q3')">Voir réponse</button>
+        <div class="cas-answer" id="cas5q3"><strong>→ Contracture abdominale, rebond positif, fièvre élevée, silence auscultatoire</strong> = signes péritonéaux = nécrose/perforation → urgence chirurgicale vitale.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAS 6 -->
+  <div class="cas-card">
+    <div class="cas-header">
+      <span class="cas-num">Cas 6</span>
+      <span class="cas-title">Brûlure grave — étendue et profondeur</span>
+    </div>
+    <div class="cas-text">Patient de 25 ans, victime d'un accident dans une usine avec projection de soude caustique sur tout le tronc antérieur et les 2 bras. Certaines zones sont recouvertes de cloques épaisses couleur cerise-brun, d'autres zones sont complètement insensibles avec aspect de cuir brûlé.</div>
+    <div class="cas-questions">
+      <div class="cas-q"><strong>Q1.</strong> Décrivez les degrés de brûlure présents. <button class="toggle-btn" onclick="toggleAnswer('cas6q1')">Voir réponse</button>
+        <div class="cas-answer" id="cas6q1"><strong>→ 2ème degré profond</strong> (cloques épaisses + couleur cerise) + <strong>3ème degré</strong> (zones insensibles = nerfs détruits + aspect parchemin/cuir = escarre). Brûlure mixte grave.</div>
+      </div>
+      <div class="cas-q"><strong>Q2.</strong> Évaluer l'étendue avec la règle des 9. <button class="toggle-btn" onclick="toggleAnswer('cas6q2')">Voir réponse</button>
+        <div class="cas-answer" id="cas6q2"><strong>→ Thorax antérieur = 9%</strong> + <strong>bras droit = 9%</strong> + <strong>bras gauche = 9%</strong> = <strong>SCB = 27%</strong>. Brûlure grave (>20% = grave chez l'adulte).</div>
+      </div>
+      <div class="cas-q"><strong>Q3.</strong> Quel agent a causé ces brûlures et quel mécanisme ? <button class="toggle-btn" onclick="toggleAnswer('cas6q3')">Voir réponse</button>
+        <div class="cas-answer" id="cas6q3"><strong>→ Soude caustique = BASE</strong> → mécanisme de <strong>saponification</strong> (transformation des graisses en savon) + pénétration profonde des tissus. Les brûlures alcalines sont plus profondes que les brûlures acides.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAS 7 -->
+  <div class="cas-card">
+    <div class="cas-header">
+      <span class="cas-num">Cas 7</span>
+      <span class="cas-title">Syndrome tumoral de la fosse iliaque droite</span>
+    </div>
+    <div class="cas-text">Mr Yassine, 70 ans, fumeur, sans ATCD notable. Consulte pour sang dans les selles depuis quelques mois. Difficultés à la défécation, selles plus fines. Légère asthénie. À l'examen : masse palpable en FID, légèrement douloureuse, d'aspect solide, non pulsatile.</div>
+    <div class="cas-questions">
+      <div class="cas-q"><strong>Q1.</strong> Quel diagnostic probable ? <button class="toggle-btn" onclick="toggleAnswer('cas7q1')">Voir réponse</button>
+        <div class="cas-answer" id="cas7q1"><strong>→ Cancer du côlon ascendant (caecum/côlon droit)</strong> probable. Homme âgé + sang dans selles + selles fines + masse FID = cancer du côlon jusqu'à preuve du contraire.</div>
+      </div>
+      <div class="cas-q"><strong>Q2.</strong> Examen paraclinique de confirmation ? <button class="toggle-btn" onclick="toggleAnswer('cas7q2')">Voir réponse</button>
+        <div class="cas-answer" id="cas7q2"><strong>→ Coloscopie totale avec biopsies</strong> = gold standard pour le cancer du côlon. Permet biopsie + diagnostic histologique. Compléter par TDM thoraco-abdomino-pelvien pour bilan d'extension.</div>
+      </div>
+      <div class="cas-q"><strong>Q3.</strong> Quels autres organes peuvent donner une masse en FID ? <button class="toggle-btn" onclick="toggleAnswer('cas7q3')">Voir réponse</button>
+        <div class="cas-answer" id="cas7q3"><strong>→ Appendice</strong> (plastron appendiculaire), <strong>caecum</strong>, <strong>tératome</strong>, <strong>kyste de l'ovaire droit</strong>, abcès. La FID contient : appendice + caecum + partie terminale de l'iléon + ovaire droit (femme).</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- PRONOSTICS / CONSEILS -->
+<!-- ============================================================ -->
+<div class="pronostic-section" id="pronostic">
+  <div class="pronostic-title">🎯 Pronostics d'examen & Conseils stratégiques</div>
+  <p style="color:#4c1d95;font-size:14px;margin-bottom:20px;">Basé sur l'analyse du cours : ce que le Dr Lubin a mis en évidence, les cas examinés antérieurement, et la structure des 3 documents.</p>
+
+  <div class="priority-item">
+    <div class="priority-num">1</div>
+    <div>
+      <div class="priority-label">⭐⭐⭐ SYNDROME OCCLUSIF — La base de tout</div>
+      <div class="star-rating">★★★★★</div>
+      <div class="priority-text">C'est le CŒUR du cours (24 pages sur Chirurgie 1 + révisions en Session 2). Le prof consacre plus de temps à ce thème. Attendez-vous à un QCM ou cas clinique sur la distinction mécanique vs fonctionnelle, et la lecture de l'ASP (NHA organisés vs désorganisés, gaz dans le rectum). Mémorisez : examen physique = 95% du diagnostic.</div>
+    </div>
+  </div>
+
+  <div class="priority-item">
+    <div class="priority-num">2</div>
+    <div>
+      <div class="priority-label">⭐⭐⭐ INVAGINATION — Cas clinique nourrisson très probable</div>
+      <div class="star-rating">★★★★★</div>
+      <div class="priority-text">Le prof a donné beaucoup d'exemples cliniques sur l'invagination avec le tableau nourrisson. Attendez-vous à un cas clinique du type : "nourrisson, pleurs paroxystiques, selles gelée de groseille, que faites-vous ?". Réponse type : échographie → lavement thérapeutique. La différence idiopathique (&lt;2 ans) vs secondaire (&gt;2 ans) est un QCM facile.</div>
+    </div>
+  </div>
+
+  <div class="priority-item">
+    <div class="priority-num">3</div>
+    <div>
+      <div class="priority-label">⭐⭐⭐ HERNIES ÉTRANGLÉES — Urgence chirurgicale</div>
+      <div class="star-rating">★★★★☆</div>
+      <div class="priority-text">Le prof a insisté sur la distinction hernie réductible / incarcérée / étranglée. Les cas cliniques d'hernie étranglée sont classiques en chirurgie. Attendez : "patient avec tuméfaction inguinale irréductible douloureuse depuis X heures → que faites-vous ?" Réponse : urgence chirurgicale. Retenez que la crurale s'étrangle souvent.</div>
+    </div>
+  </div>
+
+  <div class="priority-item">
+    <div class="priority-num">4</div>
+    <div>
+      <div class="priority-label">⭐⭐ BRÛLURES — Classification par degrés</div>
+      <div class="star-rating">★★★★☆</div>
+      <div class="priority-text">Sujet nouveau introduit en session 2 → donc fort probable à l'examen de session 2. Concentrez-vous sur : 3ème degré = indolore (contre-intuitif mais très piégeur), phlyctènes = 2ème degré, règle des 9 pour l'étendue. Question classique : "brûlure avec zones indolores → quel degré ?" = 3ème degré.</div>
+    </div>
+  </div>
+
+  <div class="priority-item">
+    <div class="priority-num">5</div>
+    <div>
+      <div class="priority-label">⭐⭐ VOLVULUS & ASP — Images radiologiques</div>
+      <div class="star-rating">★★★☆☆</div>
+      <div class="priority-text">Le volvulus est régulièrement vu en exam car il a des signes radiologiques précis (bec d'oiseau) et un tableau clinique spécifique (vieillard + distension asymétrique). Les images ASP peuvent être montrées pour identification.</div>
+    </div>
+  </div>
+
+  <div class="priority-item">
+    <div class="priority-num">6</div>
+    <div>
+      <div class="priority-label">⭐⭐ SYNDROME TUMORAL — Localisations par quadrant</div>
+      <div class="star-rating">★★★☆☆</div>
+      <div class="priority-text">Moins de cas cliniques pratiqués mais les localisations par quadrant sont demandées en QCM. Retenez : FID = appendice + caecum + kyste ovaire D. FIG = sigmoïde + ovaire G. Masse pulsatile épigastre = anévrisme aorte. Contact lombaire = masse rénale.</div>
+    </div>
+  </div>
+
+  <div class="priority-item">
+    <div class="priority-num">7</div>
+    <div>
+      <div class="priority-label">📌 CONSEILS FINAUX STRATÉGIQUES</div>
+      <div class="star-rating"></div>
+      <div class="priority-text">
+        <strong>1. Maîtrisez les "pièges classiques" :</strong> 3ème degré brûlure = indolore (pas douloureux !), Occlusion ≠ contracture systématique, Fonctionnelle = gaz dans rectum (+).
+        <br><br>
+        <strong>2. Lisez les cas cliniques attentivement :</strong> Le Dr Lubin donne souvent 3-4 données cliniques dont 1-2 distracteurs. Cherchez le signe pathognomonique (selles gelée de groseille = invagination, asymétrie = volvulus).
+        <br><br>
+        <strong>3. Les "1ère cause" :</strong> Brides = 1ère cause occlusion mondiale. Iléo-colique = 1ère invagination fréquente.
+        <br><br>
+        <strong>4. Anatomie clef :</strong> Angle de Treitz, valvule de Bauhin, mésentère vs mésocôlon → attendez des QCM là-dessus.
+        <br><br>
+        <strong>5. Examen de choix :</strong> ASP pour occlusion générale / Échographie pour invagination / Lavement pour volvulus + invagination (diagnostique ET thérapeutique).
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-purple" style="margin-top:20px;">
+    <strong>🎓 Message final :</strong> Ce cours est dense mais structuré. Les 7 thèmes s'articulent autour de 2 axes : urgences abdominales (occlusion, invagination, volvulus, hernies) et sémiologie générale (tumoral, brûlures). L'examen sera probablement 4 QCM/cas sur les urgences abdominales et 1-2 cas sur les brûlures/tumoral. Bon courage, tu as les bases, maintenant c'est la répétition qui fait la différence !
+  </div>
+</div>
+
+</div><!-- end main-content -->
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+  document.getElementById('progress').style.width = (p * 100) + '%';
+  document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+  
+  // Update nav active state
+  const sections = ['t1','t2','t3','t4','t5','t6','t7','eval','pronostic'];
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 120) current = id;
+  });
+  document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === sections.indexOf(current));
+  });
+});
+
+// Scroll to section
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Answer handler
+const answered = {};
+function answer(btn, type, qid) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  
+  const parent = btn.closest('.options');
+  const allBtns = parent.querySelectorAll('.option-btn');
+  allBtns.forEach(b => { b.disabled = true; });
+  
+  const card = btn.closest('.question-card');
+  
+  if (type === 'correct') {
+    btn.classList.add('correct');
+    // Show correct feedback (try both id patterns)
+    const fb = document.getElementById('fb-' + qid + '-correct');
+    if (fb) { fb.classList.add('show'); fb.style.display = 'block'; }
+  } else {
+    btn.classList.add('wrong');
+    // Highlight the correct button
+    allBtns.forEach(b => {
+      const oc = b.getAttribute('onclick') || '';
+      if (oc.includes("'correct'")) b.classList.add('correct');
+    });
+    const fb = document.getElementById('fb-' + qid + '-wrong');
+    if (fb) { fb.classList.add('show'); fb.style.display = 'block'; }
+  }
+  
+  // Update global score tracker
+  updateGlobalTracker();
+}
+
+// Global score tracker
+const globalScores = {};
+function updateGlobalTracker() {
+  const allQcms = ['qcm1','qcm2','qcm3','qcm5','qcm6','qcm7','eval_qcm'];
+  let totalAnswered = 0, totalCorrect = 0;
+  allQcms.forEach(qid => {
+    const el = document.getElementById(qid);
+    if (!el) return;
+    el.querySelectorAll('.question-card').forEach(card => {
+      const correct = card.querySelector('.option-btn.correct');
+      const wrong = card.querySelector('.option-btn.wrong');
+      if (correct && correct.disabled) { totalAnswered++; totalCorrect++; }
+      else if (wrong && wrong.disabled) { totalAnswered++; }
+    });
+  });
+  const tracker = document.getElementById('global-tracker');
+  if (tracker) {
+    const pct = totalAnswered > 0 ? Math.round((totalCorrect/totalAnswered)*100) : 0;
+    tracker.querySelector('.gt-num').textContent = totalCorrect + '/' + totalAnswered;
+    tracker.querySelector('.gt-pct').textContent = pct + '%';
+    tracker.querySelector('.gt-bar-fill').style.width = pct + '%';
+    tracker.querySelector('.gt-bar-fill').style.background = pct >= 70 ? '#16a34a' : pct >= 50 ? '#d97706' : '#dc2626';
+  }
+}
+
+// Calculate score
+function calcScore(qcmId, total) {
+  const qcmEl = document.getElementById(qcmId);
+  if (!qcmEl) return;
+  
+  let correct = 0;
+  const qCards = qcmEl.querySelectorAll('.question-card');
+  qCards.forEach(card => {
+    const correctBtn = card.querySelector('.option-btn.correct');
+    if (correctBtn && correctBtn.disabled) correct++;
+  });
+  
+  const scoreEl = document.getElementById('score-' + qcmId);
+  const numEl = document.getElementById('score-num-' + qcmId);
+  if (scoreEl && numEl) {
+    numEl.textContent = correct + ' / ' + total;
+    numEl.style.color = correct >= total * 0.8 ? '#16a34a' : correct >= total * 0.6 ? '#d97706' : '#dc2626';
+    scoreEl.style.display = 'block';
+    
+    // Remove old message if any
+    const oldMsg = scoreEl.querySelector('.score-msg');
+    if (oldMsg) oldMsg.remove();
+    
+    const msg = document.createElement('p');
+    msg.className = 'score-msg';
+    msg.style.cssText = 'margin-top:8px;font-size:13px;';
+    if (correct >= total * 0.8) msg.textContent = '🎉 Excellent ! Vous maîtrisez ce thème.';
+    else if (correct >= total * 0.6) msg.textContent = '👍 Bien ! Quelques points à revoir.';
+    else if (correct >= total * 0.4) msg.textContent = '📚 Passable. Relisez les explications attentivement.';
+    else msg.textContent = '🔴 À retravailler entièrement. Reprenez la fiche.';
+    scoreEl.appendChild(msg);
+  }
+}
+
+// Reset QCM
+function resetQcm(qcmId, total) {
+  const qcmEl = document.getElementById(qcmId);
+  if (!qcmEl) return;
+  
+  const qCards = qcmEl.querySelectorAll('.question-card');
+  qCards.forEach(card => {
+    const btns = card.querySelectorAll('.option-btn');
+    btns.forEach(b => {
+      b.disabled = false;
+      b.classList.remove('correct', 'wrong');
+      // Clear answered state from global tracker
+      const oc = b.getAttribute('onclick') || '';
+      const match = oc.match(/'([^']+)'\s*\)/g);
+      if (match && match.length >= 2) {
+        const qidMatch = oc.match(/'([^']+)'\s*\)\s*$/);
+        if (qidMatch) delete answered[qidMatch[1]];
+      }
+    });
+    
+    // Clear qid from answered
+    const firstBtn = card.querySelector('.option-btn');
+    if (firstBtn) {
+      const oc = firstBtn.getAttribute('onclick') || '';
+      const m = oc.match(/answer\(this,'[^']+','([^']+)'\)/);
+      if (m) delete answered[m[1]];
+    }
+    
+    card.querySelectorAll('.feedback').forEach(f => {
+      f.classList.remove('show');
+      f.style.display = '';
+    });
+  });
+  
+  const scoreEl = document.getElementById('score-' + qcmId);
+  if (scoreEl) {
+    scoreEl.style.display = 'none';
+    scoreEl.innerHTML = '<div class="score-big" id="score-num-' + qcmId + '">—</div><div class="score-label" style="color:inherit;">Questions correctes sur ' + total + '</div>';
+  }
+  updateGlobalTracker();
+}
+
+// Toggle answer visibility
+function toggleAnswer(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.classList.toggle('show');
+    const btn = el.previousElementSibling;
+    if (btn && btn.tagName === 'BUTTON') {
+      btn.textContent = el.classList.contains('show') ? 'Masquer' : 'Voir réponse';
+    }
+  }
+}
+</script>
+</body>
+</html>
